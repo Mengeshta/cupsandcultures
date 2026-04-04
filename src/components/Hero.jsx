@@ -33,7 +33,7 @@ export default function Hero() {
           }`}
         >
           <img
-            src="/assets/logo-icon-dark.png?t=20250404"
+            src="/assets/logo-icon-dark.png"
             alt="Cups & Cultures emblem"
             className="w-32 h-32 md:w-44 md:h-44 mx-auto mb-8 drop-shadow-2xl"
           />
