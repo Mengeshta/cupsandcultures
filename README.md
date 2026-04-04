@@ -132,4 +132,5 @@ Tea information is stored in `src/data/TastingMenu.json` with:
 
 **Built with**: React + Vite + Tailwind CSS  
 **Hosted on**: GitHub Pages (free)  
-**AI Powered**: Google Gemini for content generation
+**AI Powered**: Google Gemini for content generation  
+**Deployed**: ✅ LIVE
