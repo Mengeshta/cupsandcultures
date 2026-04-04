@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cups & Cultures - Page Not Found</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #FDF5E6;
+        color: #3D2B1F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+      .container {
+        max-width: 600px;
+        padding: 2rem;
+      }
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #A0522D;
+      }
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+      a {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background-color: #A0522D;
+        color: #FDF5E6;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+      a:hover {
+        background-color: #DAA520;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>404</h1>
+      <p>Oops! The page you're looking for seems to have steeped away.</p>
+      <a href="/">Return to Cups & Cultures</a>
+    </div>
+    <script>
+      // Redirect to home after 5 seconds
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 5000);
+    </script>
+  </body>
+</html>
