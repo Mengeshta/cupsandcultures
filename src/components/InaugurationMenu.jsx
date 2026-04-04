@@ -68,7 +68,7 @@ export default function InaugurationMenu() {
   const [headerRef, headerInView] = useInView()
 
   return (
-    <section id="event-menu" className="relative bg-cream-50 overflow-hidden">
+    <section id="event-menu" className="relative bg-cream-50 overflow-hidden paper-texture">
       <div className="ikat-border w-full" />
 
       <div className="section-padding max-w-6xl mx-auto">
@@ -79,7 +79,7 @@ export default function InaugurationMenu() {
             headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="heading-sans text-terracotta-500 mb-4">The Inauguration</p>
+          <p className="heading-editorial text-terracotta-500 mb-4">The Inauguration</p>
           <h2 className="heading-display text-espresso-900 text-4xl md:text-5xl lg:text-6xl mb-6">
             A Curated <span className="text-terracotta-500 italic">Tasting Menu</span>
           </h2>

@@ -80,7 +80,7 @@ export default function Community() {
             headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="heading-sans text-ochre-400 mb-4">The Experience</p>
+          <p className="heading-editorial text-ochre-400 mb-4">The Experience</p>
           <h2 className="heading-display text-cream-50 text-4xl md:text-5xl lg:text-6xl mb-6">
             What Happens When{' '}
             <span className="text-ochre-400 italic">You Show Up</span>
@@ -128,7 +128,7 @@ export default function Community() {
         >
           {/* Timeline */}
           <div className="text-center mb-12">
-            <p className="heading-sans text-ochre-400 mb-4">An Evening's Flow</p>
+            <p className="heading-editorial text-ochre-400 mb-4">An Evening's Flow</p>
             <h3 className="heading-display text-cream-50 text-2xl md:text-3xl mb-8">
               From Stranger to <span className="text-ochre-400 italic">Friend</span>
             </h3>

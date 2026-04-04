@@ -18,7 +18,7 @@ export default function SocialFeed() {
   const [gridRef, gridInView] = useInView({ threshold: 0.05 })
 
   return (
-    <section className="relative bg-cream-50 overflow-hidden">
+    <section className="relative bg-cream-50 overflow-hidden paper-texture">
       <div className="ikat-border w-full" />
 
       <div className="section-padding max-w-7xl mx-auto">
@@ -29,7 +29,7 @@ export default function SocialFeed() {
             headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="heading-sans text-terracotta-500 mb-4 flex items-center justify-center gap-2">
+          <p className="heading-editorial text-terracotta-500 mb-4 flex items-center justify-center gap-2">
             <Instagram size={16} />
             Follow the Journey
           </p>

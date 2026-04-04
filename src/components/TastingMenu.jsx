@@ -22,7 +22,7 @@ export default function TastingMenu() {
             headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="heading-sans text-ochre-400 mb-4">The Digital Tasting Menu</p>
+          <p className="heading-editorial text-ochre-400 mb-4">The Digital Tasting Menu</p>
           <h2 className="heading-display text-cream-50 text-4xl md:text-5xl lg:text-6xl mb-6">
             A World in <span className="text-ochre-400 italic">Every Leaf</span>
           </h2>
