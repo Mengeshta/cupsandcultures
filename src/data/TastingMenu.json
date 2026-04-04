@@ -1,0 +1,204 @@
+{
+  "regions": [
+    {
+      "id": "north-africa",
+      "name": "North Africa",
+      "subtitle": "The Maghreb Ritual",
+      "description": "In Morocco, Tunisia, and Algeria, tea is not a beverage — it is an act of hospitality. Poured from great height into ornate glasses, Maghreb mint tea is a symbol of friendship, negotiation, and welcome.",
+      "teas": [
+        {
+          "id": "moroccan-mint",
+          "name": "Moroccan Mint",
+          "origin": "Morocco",
+          "type": "Green Tea with Spearmint",
+          "flavorProfile": {
+            "earthiness": 20,
+            "spice": 15,
+            "floral": 10,
+            "sweetness": 60,
+            "bitterness": 15,
+            "body": 30
+          },
+          "culturalPairing": {
+            "ritual": "The three glasses tradition — the first is gentle as life, the second strong as love, the third bitter as death.",
+            "music": "Gnawa rhythms and Andalusian classical melodies",
+            "literature": "Paul Bowles — The Sheltering Sky"
+          },
+          "brewTemp": "80°C / 176°F",
+          "steepTime": "3–5 min"
+        },
+        {
+          "id": "saharan-tuareg",
+          "name": "Saharan Tuareg",
+          "origin": "Niger / Mali",
+          "type": "Gunpowder Green with Sugar",
+          "flavorProfile": {
+            "earthiness": 35,
+            "spice": 10,
+            "floral": 5,
+            "sweetness": 70,
+            "bitterness": 40,
+            "body": 50
+          },
+          "culturalPairing": {
+            "ritual": "Brewed in a small pot over coals, served in three rounds of increasing sweetness.",
+            "music": "Tinariwen — Desert blues and Tuareg guitar",
+            "literature": "Ibrahim al-Koni — The Bleeding of the Stone"
+          },
+          "brewTemp": "85°C / 185°F",
+          "steepTime": "5–7 min"
+        }
+      ]
+    },
+    {
+      "id": "east-asia",
+      "name": "East Asia",
+      "subtitle": "The Way of Tea",
+      "description": "From Japan's meditative Chanoyu ceremony to China's ancient Gongfu tradition, East Asian tea culture is a philosophy — a practice of presence, respect, and impermanence.",
+      "teas": [
+        {
+          "id": "japanese-matcha",
+          "name": "Ceremonial Matcha",
+          "origin": "Uji, Japan",
+          "type": "Stone-ground Green Tea",
+          "flavorProfile": {
+            "earthiness": 50,
+            "spice": 5,
+            "floral": 15,
+            "sweetness": 25,
+            "bitterness": 35,
+            "body": 70
+          },
+          "culturalPairing": {
+            "ritual": "Chanoyu — the Japanese tea ceremony rooted in Zen Buddhism. Every movement is intentional.",
+            "music": "Shakuhachi flute — meditative bamboo tones",
+            "literature": "Kakuzo Okakura — The Book of Tea"
+          },
+          "brewTemp": "70°C / 158°F",
+          "steepTime": "Whisk 15–30 sec"
+        },
+        {
+          "id": "chinese-pu-erh",
+          "name": "Aged Pu-erh",
+          "origin": "Yunnan, China",
+          "type": "Fermented Dark Tea",
+          "flavorProfile": {
+            "earthiness": 85,
+            "spice": 20,
+            "floral": 10,
+            "sweetness": 15,
+            "bitterness": 30,
+            "body": 90
+          },
+          "culturalPairing": {
+            "ritual": "Gongfu Cha — a meditative multi-steep technique using a tiny Yixing clay pot.",
+            "music": "Guqin — the ancient seven-string zither",
+            "literature": "Lu Yu — The Classic of Tea (760 AD)"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "10–30 sec (multiple steeps)"
+        }
+      ]
+    },
+    {
+      "id": "south-america",
+      "name": "South America",
+      "subtitle": "The Circle of Yerba",
+      "description": "In Argentina, Uruguay, and southern Brazil, sharing mate from a single gourd is a ritual of equality and trust — a circle where everyone drinks from the same vessel.",
+      "teas": [
+        {
+          "id": "argentine-mate",
+          "name": "Argentine Mate",
+          "origin": "Misiones, Argentina",
+          "type": "Yerba Mate",
+          "flavorProfile": {
+            "earthiness": 60,
+            "spice": 15,
+            "floral": 5,
+            "sweetness": 10,
+            "bitterness": 65,
+            "body": 75
+          },
+          "culturalPairing": {
+            "ritual": "The cebador prepares and serves. Saying 'gracias' means you're done. The gourd passes left.",
+            "music": "Chamame folk music of the Litoral region",
+            "literature": "Jorge Luis Borges — Ficciones"
+          },
+          "brewTemp": "70°C / 158°F",
+          "steepTime": "Continuous refill"
+        },
+        {
+          "id": "brazilian-chimarrao",
+          "name": "Chimarrão",
+          "origin": "Rio Grande do Sul, Brazil",
+          "type": "Fresh Green Yerba Mate",
+          "flavorProfile": {
+            "earthiness": 45,
+            "spice": 10,
+            "floral": 15,
+            "sweetness": 20,
+            "bitterness": 50,
+            "body": 60
+          },
+          "culturalPairing": {
+            "ritual": "Shared among gauchos on the pampas, prepared fresh with a cuia and bomba.",
+            "music": "Milonga — the folk music of the southern plains",
+            "literature": "Érico Veríssimo — O Tempo e o Vento"
+          },
+          "brewTemp": "70°C / 158°F",
+          "steepTime": "Continuous refill"
+        }
+      ]
+    },
+    {
+      "id": "south-asia",
+      "name": "South Asia",
+      "subtitle": "Chai as Communion",
+      "description": "From the bustling chaiwallahs of Mumbai to the misty plantations of Darjeeling, tea in South Asia is woven into the rhythm of daily life — every street corner, every conversation.",
+      "teas": [
+        {
+          "id": "masala-chai",
+          "name": "Masala Chai",
+          "origin": "India",
+          "type": "Spiced Black Tea with Milk",
+          "flavorProfile": {
+            "earthiness": 30,
+            "spice": 85,
+            "floral": 10,
+            "sweetness": 40,
+            "bitterness": 20,
+            "body": 65
+          },
+          "culturalPairing": {
+            "ritual": "Simmered slowly with cardamom, ginger, cinnamon, and cloves. Served in small clay cups — kulhads.",
+            "music": "Ravi Shankar — Sitar ragas at dusk",
+            "literature": "Arundhati Roy — The God of Small Things"
+          },
+          "brewTemp": "100°C / 212°F",
+          "steepTime": "Simmer 5–8 min"
+        },
+        {
+          "id": "darjeeling-first-flush",
+          "name": "Darjeeling First Flush",
+          "origin": "Darjeeling, India",
+          "type": "Light Black Tea",
+          "flavorProfile": {
+            "earthiness": 25,
+            "spice": 10,
+            "floral": 70,
+            "sweetness": 35,
+            "bitterness": 20,
+            "body": 30
+          },
+          "culturalPairing": {
+            "ritual": "Known as the 'Champagne of Teas,' best enjoyed without milk to appreciate its muscatel notes.",
+            "music": "Sarod melodies — the reflective tones of the hills",
+            "literature": "Ruskin Bond — A Town Called Dehra"
+          },
+          "brewTemp": "85°C / 185°F",
+          "steepTime": "3–4 min"
+        }
+      ]
+    }
+  ]
+}

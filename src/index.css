@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream-50 text-espresso-900 font-sans;
+  }
+
+  ::selection {
+    @apply bg-ochre-400/30 text-espresso-900;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
+  }
+
+  .heading-display {
+    @apply font-serif font-medium tracking-tight;
+  }
+
+  .heading-sans {
+    @apply font-sans font-semibold uppercase tracking-[0.2em] text-sm;
+  }
+
+  .ikat-border {
+    background-image: repeating-linear-gradient(
+      90deg,
+      #A0522D 0px,
+      #A0522D 4px,
+      transparent 4px,
+      transparent 12px,
+      #DAA520 12px,
+      #DAA520 16px,
+      transparent 16px,
+      transparent 24px
+    );
+    height: 3px;
+  }
+
+  .ikat-border-vertical {
+    background-image: repeating-linear-gradient(
+      0deg,
+      #A0522D 0px,
+      #A0522D 4px,
+      transparent 4px,
+      transparent 12px,
+      #DAA520 12px,
+      #DAA520 16px,
+      transparent 16px,
+      transparent 24px
+    );
+    width: 3px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .transition-slow {
+    @apply transition-all duration-700 ease-in-out;
+  }
+}
+
+/* Geometric pattern overlay */
+.geometric-pattern {
+  background-image: 
+    linear-gradient(30deg, #A0522D11 12%, transparent 12.5%, transparent 87%, #A0522D11 87.5%, #A0522D11),
+    linear-gradient(150deg, #A0522D11 12%, transparent 12.5%, transparent 87%, #A0522D11 87.5%, #A0522D11),
+    linear-gradient(30deg, #A0522D11 12%, transparent 12.5%, transparent 87%, #A0522D11 87.5%, #A0522D11),
+    linear-gradient(150deg, #A0522D11 12%, transparent 12.5%, transparent 87%, #A0522D11 87.5%, #A0522D11),
+    linear-gradient(60deg, #DAA52009 25%, transparent 25.5%, transparent 75%, #DAA52009 75%, #DAA52009),
+    linear-gradient(60deg, #DAA52009 25%, transparent 25.5%, transparent 75%, #DAA52009 75%, #DAA52009);
+  background-size: 40px 70px;
+  background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FDF5E6;
+}
+::-webkit-scrollbar-thumb {
+  background: #A0522D55;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A0522D88;
+}
