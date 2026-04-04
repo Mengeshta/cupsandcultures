@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import logoDark from '/assets/logo-icon-dark.png'
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
@@ -32,7 +33,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-3 group">
           <img
-            src="/assets/logo-icon-dark.png"
+            src={logoDark}
             alt="Cups & Cultures"
             className="w-10 h-10 md:w-12 md:h-12 transition-transform duration-500 group-hover:scale-105"
           />

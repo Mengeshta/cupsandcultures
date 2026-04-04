@@ -1,4 +1,5 @@
 import { Instagram, Mail, ArrowUp } from 'lucide-react'
+import logoWhite from '/assets/logo-icon-white.png'
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -14,7 +15,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/assets/logo-icon-white.png" alt="Cups & Cultures" className="w-12 h-12" />
+              <img src={logoWhite} alt="Cups & Cultures" className="w-12 h-12" />
               <h3 className="font-serif text-cream-50 text-2xl md:text-3xl font-semibold">
                 Cups & Cultures
               </h3>

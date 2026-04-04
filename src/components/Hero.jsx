@@ -1,4 +1,5 @@
 import { useInView } from '../hooks/useInView'
+import logoDark from '/assets/logo-icon-dark.png'
 
 export default function Hero() {
   const [ref, isInView] = useInView({ threshold: 0.1 })
@@ -33,7 +34,7 @@ export default function Hero() {
           }`}
         >
           <img
-            src="/assets/logo-icon-dark.png"
+            src={logoDark}
             alt="Cups & Cultures emblem"
             className="w-32 h-32 md:w-44 md:h-44 mx-auto mb-8 drop-shadow-2xl"
           />
