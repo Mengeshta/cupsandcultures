@@ -2,11 +2,16 @@ import { Instagram, Mail, ArrowUp } from 'lucide-react'
 import logoWhite from '/assets/logo-icon-white.png'
 
 const footerLinks = [
-  { label: 'Our Story', href: '#our-story' },
-  { label: 'The Menu', href: '#tasting-menu' },
-  { label: 'Events', href: '#events' },
-  { label: 'Connect', href: '#community' },
+  { label: 'Our Story', section: 'our-story' },
+  { label: 'The Menu', section: 'tasting-menu' },
+  { label: 'Events', section: 'events' },
+  { label: 'Connect', section: 'community' },
 ]
+
+const scrollTo = (sectionId) => {
+  const el = document.getElementById(sectionId)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -55,13 +60,13 @@ export default function Footer() {
             </h4>
             <div className="space-y-3">
               {footerLinks.map((link) => (
-                <a
+                <button
                   key={link.label}
-                  href={link.href}
+                  onClick={() => scrollTo(link.section)}
                   className="block font-sans text-cream-100/35 hover:text-ochre-400 transition-colors duration-500 text-sm"
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
             </div>
           </div>

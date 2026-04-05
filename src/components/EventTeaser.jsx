@@ -59,7 +59,7 @@ export default function EventTeaser() {
 
             {/* What to expect */}
             <div className="grid grid-cols-2 gap-4">
-              {['Live Tea Ceremony', 'Cultural Storytelling', 'Live Music', 'Art Exhibition'].map(
+              {['Live Tea Ceremony', 'Cultural Storytelling', 'Tea-Infused Treats', 'Meaningful Conversation'].map(
                 (item) => (
                   <div
                     key={item}
