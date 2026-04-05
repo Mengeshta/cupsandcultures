@@ -1,9 +1,19 @@
 {
+  "menus": [
+    {
+      "id": "caffeinated",
+      "label": "Caffeinated"
+    },
+    {
+      "id": "non-caffeinated",
+      "label": "Non-Caffeinated"
+    }
+  ],
   "regions": [
     {
       "id": "north-africa",
       "name": "North Africa",
-      "subtitle": "The Maghreb Ritual",
+      "subtitle": "The Maghreb Ceremony",
       "description": "In Morocco, Tunisia, and Algeria, tea is not a beverage — it is an act of hospitality. Poured from great height into ornate glasses, Maghreb mint tea is a symbol of friendship, negotiation, and welcome.",
       "teas": [
         {
@@ -11,6 +21,7 @@
           "name": "Moroccan Mint",
           "origin": "Morocco",
           "type": "Green Tea with Spearmint",
+          "caffeine": "caffeinated",
           "flavorProfile": {
             "earthiness": 20,
             "spice": 15,
@@ -20,7 +31,7 @@
             "body": 30
           },
           "culturalPairing": {
-            "ritual": "The three glasses tradition — the first is gentle as life, the second strong as love, the third bitter as death.",
+            "ceremony": "The three glasses tradition — the first is gentle as life, the second strong as love, the third bitter as death.",
             "music": "Gnawa rhythms and Andalusian classical melodies",
             "literature": "Paul Bowles — The Sheltering Sky"
           },
@@ -32,6 +43,7 @@
           "name": "Saharan Tuareg",
           "origin": "Niger / Mali",
           "type": "Gunpowder Green with Sugar",
+          "caffeine": "caffeinated",
           "flavorProfile": {
             "earthiness": 35,
             "spice": 10,
@@ -41,11 +53,33 @@
             "body": 50
           },
           "culturalPairing": {
-            "ritual": "Brewed in a small pot over coals, served in three rounds of increasing sweetness.",
+            "ceremony": "Brewed in a small pot over coals, served in three rounds of increasing sweetness.",
             "music": "Tinariwen — Desert blues and Tuareg guitar",
             "literature": "Ibrahim al-Koni — The Bleeding of the Stone"
           },
           "brewTemp": "85°C / 185°F",
+          "steepTime": "5–7 min"
+        },
+        {
+          "id": "moroccan-rosewater",
+          "name": "Moroccan Rosewater Tisane",
+          "origin": "Morocco",
+          "type": "Herbal Infusion — Rose Petals, Orange Blossom, Verbena",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 10,
+            "spice": 5,
+            "floral": 80,
+            "sweetness": 55,
+            "bitterness": 5,
+            "body": 20
+          },
+          "culturalPairing": {
+            "ceremony": "Served after meals in the riads of Marrakech — a gentle, floral close to the evening.",
+            "music": "Andalusian oud — the melodies of the medina at dusk",
+            "literature": "Tahar Ben Jelloun — The Sacred Night"
+          },
+          "brewTemp": "95°C / 203°F",
           "steepTime": "5–7 min"
         }
       ]
@@ -54,49 +88,73 @@
       "id": "east-asia",
       "name": "East Asia",
       "subtitle": "The Way of Tea",
-      "description": "From Japan's meditative Chanoyu ceremony to China's ancient Gongfu tradition, East Asian tea culture is a philosophy — a practice of presence, respect, and impermanence.",
+      "description": "From Japan's meditative tea ceremonies to China's ancient Gongfu tradition and Taiwan's high-mountain oolongs, East Asian tea culture is a philosophy — a practice of presence, respect, and craft.",
       "teas": [
         {
-          "id": "japanese-matcha",
-          "name": "Ceremonial Matcha",
-          "origin": "Uji, Japan",
-          "type": "Stone-ground Green Tea",
+          "id": "japanese-genmaicha",
+          "name": "Genmaicha",
+          "origin": "Kyoto, Japan",
+          "type": "Green Tea with Toasted Rice",
+          "caffeine": "caffeinated",
           "flavorProfile": {
-            "earthiness": 50,
-            "spice": 5,
+            "earthiness": 40,
+            "spice": 10,
             "floral": 15,
-            "sweetness": 25,
-            "bitterness": 35,
-            "body": 70
+            "sweetness": 45,
+            "bitterness": 15,
+            "body": 50
           },
           "culturalPairing": {
-            "ritual": "Chanoyu — the Japanese tea ceremony rooted in Zen Buddhism. Every movement is intentional.",
+            "ceremony": "Once called 'the people's tea,' genmaicha was born from adding toasted rice to stretch precious tea leaves — warmth and humility in a cup.",
+            "music": "Koto — the 13-string plucked instrument of Japanese court music",
+            "literature": "Yasunari Kawabata — The Old Capital"
+          },
+          "brewTemp": "80°C / 176°F",
+          "steepTime": "2–3 min"
+        },
+        {
+          "id": "taiwanese-oolong",
+          "name": "Alishan High Mountain Oolong",
+          "origin": "Alishan, Taiwan",
+          "type": "Lightly Oxidized Oolong",
+          "caffeine": "caffeinated",
+          "flavorProfile": {
+            "earthiness": 30,
+            "spice": 10,
+            "floral": 65,
+            "sweetness": 50,
+            "bitterness": 15,
+            "body": 45
+          },
+          "culturalPairing": {
+            "ceremony": "Gongfu Cha — small clay pots, multiple short steeps, each pour revealing new layers of the leaf's character.",
+            "music": "Erhu — the two-string fiddle that sings like a human voice",
+            "literature": "Lin Yutang — The Importance of Living"
+          },
+          "brewTemp": "90°C / 194°F",
+          "steepTime": "30–60 sec (multiple steeps)"
+        },
+        {
+          "id": "japanese-hojicha",
+          "name": "Hojicha",
+          "origin": "Kyoto, Japan",
+          "type": "Roasted Green Tea",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 55,
+            "spice": 15,
+            "floral": 10,
+            "sweetness": 35,
+            "bitterness": 10,
+            "body": 40
+          },
+          "culturalPairing": {
+            "ceremony": "Roasted over charcoal in porcelain pots, hojicha is the evening tea of Japan — warm, nutty, and naturally low in caffeine. A cup of calm.",
             "music": "Shakuhachi flute — meditative bamboo tones",
             "literature": "Kakuzo Okakura — The Book of Tea"
           },
-          "brewTemp": "70°C / 158°F",
-          "steepTime": "Whisk 15–30 sec"
-        },
-        {
-          "id": "chinese-pu-erh",
-          "name": "Aged Pu-erh",
-          "origin": "Yunnan, China",
-          "type": "Fermented Dark Tea",
-          "flavorProfile": {
-            "earthiness": 85,
-            "spice": 20,
-            "floral": 10,
-            "sweetness": 15,
-            "bitterness": 30,
-            "body": 90
-          },
-          "culturalPairing": {
-            "ritual": "Gongfu Cha — a meditative multi-steep technique using a tiny Yixing clay pot.",
-            "music": "Guqin — the ancient seven-string zither",
-            "literature": "Lu Yu — The Classic of Tea (760 AD)"
-          },
-          "brewTemp": "95°C / 203°F",
-          "steepTime": "10–30 sec (multiple steeps)"
+          "brewTemp": "90°C / 194°F",
+          "steepTime": "1–2 min"
         }
       ]
     },
@@ -104,13 +162,14 @@
       "id": "south-america",
       "name": "South America",
       "subtitle": "The Circle of Yerba",
-      "description": "In Argentina, Uruguay, and southern Brazil, sharing mate from a single gourd is a ritual of equality and trust — a circle where everyone drinks from the same vessel.",
+      "description": "In Argentina, Uruguay, and southern Brazil, sharing mate from a single gourd is a tradition of equality and trust — a circle where everyone drinks from the same vessel.",
       "teas": [
         {
           "id": "argentine-mate",
           "name": "Argentine Mate",
           "origin": "Misiones, Argentina",
           "type": "Yerba Mate",
+          "caffeine": "caffeinated",
           "flavorProfile": {
             "earthiness": 60,
             "spice": 15,
@@ -120,7 +179,7 @@
             "body": 75
           },
           "culturalPairing": {
-            "ritual": "The cebador prepares and serves. Saying 'gracias' means you're done. The gourd passes left.",
+            "ceremony": "The cebador prepares and serves. Saying 'gracias' means you're done. The gourd passes left.",
             "music": "Chamame folk music of the Litoral region",
             "literature": "Jorge Luis Borges — Ficciones"
           },
@@ -132,6 +191,7 @@
           "name": "Chimarrão",
           "origin": "Rio Grande do Sul, Brazil",
           "type": "Fresh Green Yerba Mate",
+          "caffeine": "caffeinated",
           "flavorProfile": {
             "earthiness": 45,
             "spice": 10,
@@ -141,12 +201,34 @@
             "body": 60
           },
           "culturalPairing": {
-            "ritual": "Shared among gauchos on the pampas, prepared fresh with a cuia and bomba.",
+            "ceremony": "Shared among gauchos on the pampas, prepared fresh with a cuia and bomba.",
             "music": "Milonga — the folk music of the southern plains",
             "literature": "Érico Veríssimo — O Tempo e o Vento"
           },
           "brewTemp": "70°C / 158°F",
           "steepTime": "Continuous refill"
+        },
+        {
+          "id": "herbal-mate-cocido",
+          "name": "Mate Cocido de Hierbas",
+          "origin": "Argentina",
+          "type": "Herbal Infusion — Mint, Lemon Verbena, Chamomile",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 20,
+            "spice": 10,
+            "floral": 50,
+            "sweetness": 40,
+            "bitterness": 15,
+            "body": 25
+          },
+          "culturalPairing": {
+            "ceremony": "An evening version of the mate circle — herbal, gentle, and perfect for those who want the warmth without the buzz.",
+            "music": "Zamba — the slow, swaying dance music of the Argentine north",
+            "literature": "Julio Cortázar — Hopscotch"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "4–6 min"
         }
       ]
     },
@@ -161,6 +243,7 @@
           "name": "Masala Chai",
           "origin": "India",
           "type": "Spiced Black Tea with Milk",
+          "caffeine": "caffeinated",
           "flavorProfile": {
             "earthiness": 30,
             "spice": 85,
@@ -170,7 +253,7 @@
             "body": 65
           },
           "culturalPairing": {
-            "ritual": "Simmered slowly with cardamom, ginger, cinnamon, and cloves. Served in small clay cups — kulhads.",
+            "ceremony": "Simmered slowly with cardamom, ginger, cinnamon, and cloves. Served in small clay cups — kulhads.",
             "music": "Ravi Shankar — Sitar ragas at dusk",
             "literature": "Arundhati Roy — The God of Small Things"
           },
@@ -182,6 +265,7 @@
           "name": "Darjeeling First Flush",
           "origin": "Darjeeling, India",
           "type": "Light Black Tea",
+          "caffeine": "caffeinated",
           "flavorProfile": {
             "earthiness": 25,
             "spice": 10,
@@ -191,12 +275,34 @@
             "body": 30
           },
           "culturalPairing": {
-            "ritual": "Known as the 'Champagne of Teas,' best enjoyed without milk to appreciate its muscatel notes.",
+            "ceremony": "Known as the 'Champagne of Teas,' best enjoyed without milk to appreciate its muscatel notes.",
             "music": "Sarod melodies — the reflective tones of the hills",
             "literature": "Ruskin Bond — A Town Called Dehra"
           },
           "brewTemp": "85°C / 185°F",
           "steepTime": "3–4 min"
+        },
+        {
+          "id": "kashmiri-kahwa",
+          "name": "Kashmiri Kahwa",
+          "origin": "Kashmir, India",
+          "type": "Herbal Infusion — Saffron, Cinnamon, Cardamom, Almonds",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 15,
+            "spice": 60,
+            "floral": 40,
+            "sweetness": 45,
+            "bitterness": 10,
+            "body": 35
+          },
+          "culturalPairing": {
+            "ceremony": "Brewed in a traditional samovar, kahwa is the golden welcome of the Kashmir Valley — saffron threads floating in warmth.",
+            "music": "Santoor — the hammered dulcimer of the Kashmir Valley",
+            "literature": "Agha Shahid Ali — The Country Without a Post Office"
+          },
+          "brewTemp": "90°C / 194°F",
+          "steepTime": "4–5 min"
         }
       ]
     }

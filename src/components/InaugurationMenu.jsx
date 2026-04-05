@@ -11,10 +11,10 @@ const courses = [
       'Your evening begins the way it has for centuries across the Maghreb — with a glass of mint tea poured from height. Gentle as life, this first glass opens the senses and invites you in.',
     temp: '80°C',
     time: '3 min',
-    pairing: 'Almond-honey pastilla bites, dried fig & walnut crisps',
-    ritual:
+    pairing: 'Mint tea–glazed almond pastilla, spearmint shortbread, green tea–infused honey drizzle on fig crisps',
+    ceremony:
       'Poured from a silver teapot held high above the glass — the cascade aerates the tea and builds a light foam, a sign of a skilled host.',
-    music: 'Live Gnawa percussion — hypnotic, grounding rhythms',
+    music: 'Gnawa percussion & Andalusian melodies — scan the teapot to listen',
     color: 'from-teal-600/90 to-teal-800/90',
   },
   {
@@ -26,25 +26,25 @@ const courses = [
       'As the room warms and connections form, the second course arrives — bold, spiced, and deeply aromatic. Served in small clay kulhads that you crack open yourself.',
     temp: '100°C',
     time: 'Simmered 6 min',
-    pairing: 'Cardamom shortbread, saffron-pistachio bark, spiced cashews',
-    ritual:
+    pairing: 'Chai-spiced shortbread, masala tea–infused pistachio bark, cardamom-tea caramels',
+    ceremony:
       'Strained through a fine mesh in a dramatic, frothy pull from pot to cup. The kulhad (clay cup) adds a mineral earthiness to every sip.',
-    music: 'Sitar raga — Raga Yaman, the evening melody of homecoming',
+    music: 'Sitar ragas, Raga Yaman — scan the teapot to listen',
     color: 'from-terracotta-500/90 to-terracotta-800/90',
   },
   {
     course: 'Third Pour',
-    title: 'Ceremonial Matcha — "The Stillness"',
-    origin: 'Japan',
-    tea: 'Uji Ceremonial Grade Matcha',
+    title: 'Hojicha — "The Stillness"',
+    origin: 'Kyoto, Japan',
+    tea: 'Roasted Green Tea — warm, nutty, naturally low caffeine',
     description:
-      'The energy shifts. Lights dim. A single bowl is whisked before you in silence. This is the contemplative heart of the evening — a moment to be fully present.',
-    temp: '70°C',
-    time: 'Whisk 20 sec',
-    pairing: 'Mochi with black sesame, yuzu curd tartlet',
-    ritual:
-      'Prepared using chasen (bamboo whisk) and chawan (tea bowl). Each guest receives their bowl with a bow — an act of mutual respect.',
-    music: 'Shakuhachi bamboo flute — a single, breathlike melody',
+      'The energy shifts. The room softens. Hojicha arrives warm and toasty — roasted over charcoal, it is the evening tea of Japan. A cup of calm before the farewell.',
+    temp: '90°C',
+    time: '1–2 min',
+    pairing: 'Hojicha–infused sesame brittle, roasted rice tea cookies, yuzu-tea curd tartlet',
+    ceremony:
+      'Roasted in porcelain pots over charcoal. The deep amber color and gentle aroma signal the quietest part of the evening.',
+    music: 'Shakuhachi flute, ambient Zen — scan the teapot to listen',
     color: 'from-espresso-700/90 to-espresso-900/90',
   },
   {
@@ -56,10 +56,10 @@ const courses = [
       'The final glass. In Tuareg tradition, the third pour is "bitter as death" — a reminder that all beautiful things end, making them more precious. Tonight, we sweeten the farewell.',
     temp: '85°C',
     time: '5 min',
-    pairing: 'Dates stuffed with orange blossom cream, dark chocolate with sea salt',
-    ritual:
-      'Brewed over a small charcoal brazier at the table. The tea is poured back and forth between two glasses to aerate and cool — a desert ritual of patience.',
-    music: 'Tinariwen — desert blues guitar fading into the night',
+    pairing: 'Gunpowder tea–infused dates with orange blossom cream, green tea dark chocolate truffles with sea salt',
+    ceremony:
+      'Brewed over a small charcoal brazier at the table. The tea is poured back and forth between two glasses to aerate and cool — a desert ceremony of patience.',
+    music: 'Tinariwen, desert blues — scan the teapot to listen',
     color: 'from-ochre-500/90 to-ochre-800/90',
   },
 ]
@@ -79,13 +79,14 @@ export default function InaugurationMenu() {
             headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="heading-editorial text-terracotta-500 mb-4">The Inauguration</p>
-          <h2 className="heading-display text-espresso-900 text-4xl md:text-5xl lg:text-6xl mb-6">
-            A Curated <span className="text-terracotta-500 italic">Tasting Menu</span>
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-terracotta-500 mb-4">Our First Event</p>
+          <h2 className="font-serif text-espresso-900 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
+            The Inauguration <span className="text-terracotta-500 italic">Tasting Menu</span>
           </h2>
-          <p className="text-espresso-700/70 text-lg leading-relaxed max-w-2xl mx-auto">
-            Four pours. Four cultures. One evening. Each course is a complete sensory
-            experience — tea, food, music, and story, moving from welcome to farewell.
+          <p className="font-sans text-espresso-700/55 text-base leading-relaxed max-w-2xl mx-auto">
+            This is what awaits you at our very first gathering — four pours drawn
+            from the teas we offer, each paired with tea-infused treats and a
+            curated playlist you can scan right from the teapot.
           </p>
         </div>
 
@@ -176,15 +177,15 @@ function CourseCard({ course, index }) {
           </p>
         </div>
 
-        {/* Ritual */}
+        {/* Ceremony */}
         <div className="flex gap-3 mb-5">
           <Flame size={16} className="text-terracotta-500 mt-0.5 shrink-0" />
           <div>
             <p className="text-xs uppercase tracking-[0.15em] font-medium text-espresso-800 mb-1">
-              The Ritual
+              The Ceremony
             </p>
             <p className="text-espresso-700/60 text-sm leading-relaxed">
-              {course.ritual}
+              {course.ceremony}
             </p>
           </div>
         </div>
@@ -194,7 +195,7 @@ function CourseCard({ course, index }) {
           <Music size={16} className="text-ochre-400 mt-0.5 shrink-0" />
           <div>
             <p className="text-xs uppercase tracking-[0.15em] font-medium text-espresso-800 mb-1">
-              Soundscape
+              Playlist
             </p>
             <p className="text-espresso-700/60 text-sm leading-relaxed">
               {course.music}

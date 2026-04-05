@@ -5,10 +5,14 @@ import tastingData from '../data/TastingMenu.json'
 
 export default function TastingMenu() {
   const [activeRegion, setActiveRegion] = useState(tastingData.regions[0].id)
+  const [activeCaffeine, setActiveCaffeine] = useState('all')
   const [headerRef, headerInView] = useInView()
   const [contentRef, contentInView] = useInView({ threshold: 0.05 })
 
   const currentRegion = tastingData.regions.find((r) => r.id === activeRegion)
+  const filteredTeas = activeCaffeine === 'all'
+    ? currentRegion.teas
+    : currentRegion.teas.filter((t) => t.caffeine === activeCaffeine)
 
   return (
     <section id="tasting-menu" className="relative bg-espresso-900 overflow-hidden">
@@ -22,14 +26,35 @@ export default function TastingMenu() {
             headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="heading-editorial text-ochre-400 mb-4">The Digital Tasting Menu</p>
-          <h2 className="heading-display text-cream-50 text-4xl md:text-5xl lg:text-6xl mb-6">
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-ochre-400 mb-4">The Menu</p>
+          <h2 className="font-serif text-cream-50 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
             A World in <span className="text-ochre-400 italic">Every Leaf</span>
           </h2>
-          <p className="text-cream-100/50 text-lg leading-relaxed">
-            Toggle between origins. Discover the flavor, the ritual, and the story
+          <p className="font-sans text-cream-100/45 text-base leading-relaxed">
+            Explore origins. Discover the flavor, the ceremony, and the story
             behind each tea tradition.
           </p>
+        </div>
+
+        {/* Caffeine toggle */}
+        <div className="flex justify-center gap-2 mb-6">
+          {[
+            { id: 'all', label: 'All Teas' },
+            { id: 'caffeinated', label: 'Caffeinated' },
+            { id: 'non-caffeinated', label: 'Non-Caffeinated' },
+          ].map((opt) => (
+            <button
+              key={opt.id}
+              onClick={() => setActiveCaffeine(opt.id)}
+              className={`px-4 py-2 text-[10px] uppercase tracking-[0.15em] font-medium rounded-sm transition-all duration-500 ${
+                activeCaffeine === opt.id
+                  ? 'bg-ochre-400 text-espresso-900'
+                  : 'border border-cream-50/15 text-cream-50/40 hover:border-ochre-400/40 hover:text-ochre-400'
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))}
         </div>
 
         {/* Region Tabs */}
@@ -59,23 +84,31 @@ export default function TastingMenu() {
           <h3 className="font-serif text-cream-50 text-2xl md:text-3xl mb-3 italic">
             {currentRegion.subtitle}
           </h3>
-          <p className="text-cream-100/40 leading-relaxed">
+          <p className="font-sans text-cream-100/40 leading-relaxed text-sm">
             {currentRegion.description}
           </p>
         </div>
 
         {/* Tea Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {currentRegion.teas.map((tea, i) => (
-            <div
-              key={tea.id}
-              className="transition-all duration-700 ease-out"
-              style={{ animationDelay: `${i * 150}ms` }}
-            >
-              <MenuCard tea={tea} />
-            </div>
-          ))}
-        </div>
+        {filteredTeas.length > 0 ? (
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {filteredTeas.map((tea, i) => (
+              <div
+                key={tea.id}
+                className="transition-all duration-700 ease-out"
+                style={{ animationDelay: `${i * 150}ms` }}
+              >
+                <MenuCard tea={tea} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="font-sans text-cream-100/30 text-sm">
+              No {activeCaffeine === 'non-caffeinated' ? 'non-caffeinated' : 'caffeinated'} teas in this region yet.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   )

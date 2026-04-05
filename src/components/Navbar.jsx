@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import logoDark from '/assets/logo-icon-dark.png'
+import logoWhite from '/assets/logo-icon-white.png'
 
 const navLinks = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Our Story', href: '#manifesto' },
+  { label: 'Our Story', href: '#our-story' },
   { label: 'The Menu', href: '#tasting-menu' },
-  { label: 'Gallery', href: '#gallery' },
   { label: 'Events', href: '#events' },
-  { label: 'Community', href: '#community' },
+  { label: 'Connect', href: '#community' },
 ]
 
 export default function Navbar() {
@@ -25,21 +23,26 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled
-          ? 'bg-cream-50/95 backdrop-blur-md shadow-sm py-3'
-          : 'bg-cream-50/85 backdrop-blur-sm py-6'
+          ? 'bg-espresso-900/95 backdrop-blur-md shadow-lg py-3'
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-3 group">
           <img
-            src={logoDark}
+            src={logoWhite}
             alt="Cups & Cultures"
-            className="w-10 h-10 md:w-12 md:h-12 transition-transform duration-500 group-hover:scale-105"
+            className="w-9 h-9 md:w-10 md:h-10 transition-transform duration-500 group-hover:scale-105"
           />
-          <span className="font-serif text-xl md:text-2xl font-semibold text-espresso-900 tracking-tight group-hover:text-terracotta-500 transition-colors duration-500">
-            Cups & Cultures
-          </span>
+          <div className="flex flex-col">
+            <span className="font-serif text-lg md:text-xl font-semibold text-cream-50 tracking-tight group-hover:text-ochre-400 transition-colors duration-500 leading-tight">
+              Cups & Cultures
+            </span>
+            <span className="hidden sm:block text-[10px] uppercase tracking-[0.2em] text-cream-100/40 font-sans leading-tight">
+              Tea. Culture. Connection.
+            </span>
+          </div>
         </a>
 
         {/* Desktop Links */}
@@ -48,7 +51,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium uppercase tracking-[0.15em] text-espresso-800 hover:text-terracotta-500 transition-colors duration-500 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-ochre-400 hover:after:w-full after:transition-all after:duration-500"
+              className="text-xs font-medium uppercase tracking-[0.18em] text-cream-100/60 hover:text-ochre-400 transition-colors duration-500 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-ochre-400 hover:after:w-full after:transition-all after:duration-500"
             >
               {link.label}
             </a>
@@ -58,10 +61,10 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className="md:hidden text-espresso-900 hover:text-terracotta-500 transition-colors duration-300"
+          className="md:hidden text-cream-50 hover:text-ochre-400 transition-colors duration-300"
           aria-label="Toggle menu"
         >
-          {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -71,13 +74,13 @@ export default function Navbar() {
           isMobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-6 pb-6 pt-4 bg-cream-50/98 backdrop-blur-md space-y-1">
+        <div className="px-6 pb-6 pt-4 bg-espresso-900/98 backdrop-blur-md space-y-1">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setIsMobileOpen(false)}
-              className="block py-3 text-sm font-medium uppercase tracking-[0.15em] text-espresso-800 hover:text-terracotta-500 hover:pl-2 transition-all duration-500 border-b border-espresso-100/30"
+              className="block py-3 text-sm font-medium uppercase tracking-[0.15em] text-cream-100/60 hover:text-ochre-400 hover:pl-2 transition-all duration-500 border-b border-cream-50/10"
             >
               {link.label}
             </a>

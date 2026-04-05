@@ -2,7 +2,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Manifesto from './components/Manifesto'
 import TastingMenu from './components/TastingMenu'
-import CultureGallery from './components/CultureGallery'
 import InaugurationMenu from './components/InaugurationMenu'
 import EventTeaser from './components/EventTeaser'
 import Community from './components/Community'
@@ -16,7 +15,6 @@ export default function App() {
       <Hero />
       <Manifesto />
       <TastingMenu />
-      <CultureGallery />
       <InaugurationMenu />
       <EventTeaser />
       <Community />

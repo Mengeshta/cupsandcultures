@@ -1,5 +1,5 @@
 import { useInView } from '../hooks/useInView'
-import logoDark from '/assets/logo-icon-dark.png'
+import logoWhite from '/assets/logo-icon-white.png'
 
 export default function Hero() {
   const [ref, isInView] = useInView({ threshold: 0.1 })
@@ -29,7 +29,7 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[650px] md:h-[650px] border border-terracotta-500/6 rounded-full animate-slow-spin pointer-events-none" style={{ animationDirection: 'reverse' }} />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl">
+      <div className="relative z-10 text-center px-6 max-w-3xl">
         {/* Mandala logo — 1.2s reveal */}
         <div
           className={`${
@@ -37,46 +37,39 @@ export default function Hero() {
           }`}
         >
           <img
-            src={logoDark}
+            src={logoWhite}
             alt="Cups & Cultures emblem"
-            className="w-36 h-36 md:w-48 md:h-48 mx-auto mb-10 drop-shadow-2xl"
+            className="w-28 h-28 md:w-40 md:h-40 mx-auto mb-8 drop-shadow-2xl"
           />
         </div>
 
-        {/* Brand name — editorial uppercase */}
-        <div
-          className={`${
+        {/* Slogan — the brand's anchor */}
+        <h1
+          className={`font-serif text-cream-50 text-4xl md:text-6xl lg:text-7xl font-medium leading-[1.1] mb-6 ${
             isInView ? 'animate-text-slide-up' : 'opacity-0'
           }`}
           style={{ animationDelay: '0.6s' }}
         >
-          <p className="heading-editorial text-ochre-400 mb-6 md:mb-8">
-            Cups & Cultures
-          </p>
-        </div>
-
-        {/* Main heading — "Tea. Culture. Connection." */}
-        <h1
-          className={`heading-display text-cream-50 text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-8 ${
-            isInView ? 'animate-text-slide-up' : 'opacity-0'
-          }`}
-          style={{ animationDelay: '0.9s' }}
-        >
-          Tea.{' '}
-          <span className="text-ochre-400 italic">Culture.</span>
-          <br />
-          Connection.
+          Tea. <span className="text-ochre-400 italic">Culture.</span> Connection.
         </h1>
+
+        {/* Thin divider */}
+        <div
+          className={`w-16 h-px bg-ochre-400/50 mx-auto mb-6 ${
+            isInView ? 'animate-editorial-fade' : 'opacity-0'
+          }`}
+          style={{ animationDelay: '1.0s' }}
+        />
 
         {/* Subheading */}
         <p
-          className={`font-sans text-cream-100/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12 ${
+          className={`font-sans text-cream-100/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10 ${
             isInView ? 'animate-editorial-fade' : 'opacity-0'
           }`}
-          style={{ animationDelay: '1.3s' }}
+          style={{ animationDelay: '1.1s' }}
         >
-          We bring the world's most storied tea traditions to your cup — blending
-          history, art, music, and the slow art of connection.
+          We bring the world's most storied tea traditions to your cup —
+          blending history, art, music, and the slow art of connection.
         </p>
 
         {/* CTA */}
@@ -84,19 +77,19 @@ export default function Hero() {
           className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${
             isInView ? 'animate-editorial-fade' : 'opacity-0'
           }`}
-          style={{ animationDelay: '1.7s' }}
+          style={{ animationDelay: '1.5s' }}
         >
           <a
-            href="#tasting-menu"
-            className="px-8 py-4 bg-terracotta-500 text-cream-50 font-medium uppercase tracking-[0.2em] text-sm rounded-sm hover:bg-terracotta-600 transition-all duration-700 hover:shadow-lg hover:shadow-terracotta-500/20"
+            href="#our-story"
+            className="px-8 py-3.5 bg-terracotta-500 text-cream-50 font-sans font-medium uppercase tracking-[0.18em] text-xs rounded-sm hover:bg-terracotta-600 transition-all duration-700 hover:shadow-lg hover:shadow-terracotta-500/20"
           >
-            Explore the Menu
+            Our Story
           </a>
           <a
-            href="#events"
-            className="px-8 py-4 border border-cream-50/20 text-cream-50 font-medium uppercase tracking-[0.2em] text-sm rounded-sm hover:border-ochre-400 hover:text-ochre-400 transition-all duration-700"
+            href="#tasting-menu"
+            className="px-8 py-3.5 border border-cream-50/20 text-cream-50/80 font-sans font-medium uppercase tracking-[0.18em] text-xs rounded-sm hover:border-ochre-400 hover:text-ochre-400 transition-all duration-700"
           >
-            Upcoming Events
+            Explore the Menu
           </a>
         </div>
       </div>

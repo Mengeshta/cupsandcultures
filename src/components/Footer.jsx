@@ -1,6 +1,13 @@
 import { Instagram, Mail, ArrowUp } from 'lucide-react'
 import logoWhite from '/assets/logo-icon-white.png'
 
+const footerLinks = [
+  { label: 'Our Story', href: '#our-story' },
+  { label: 'The Menu', href: '#tasting-menu' },
+  { label: 'Events', href: '#events' },
+  { label: 'Connect', href: '#community' },
+]
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -14,48 +21,46 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 md:gap-8 mb-16">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img src={logoWhite} alt="Cups & Cultures" className="w-12 h-12" />
-              <h3 className="font-serif text-cream-50 text-2xl md:text-3xl font-semibold">
+            <div className="flex items-center gap-3 mb-3">
+              <img src={logoWhite} alt="Cups & Cultures" className="w-10 h-10" />
+              <h3 className="font-serif text-cream-50 text-xl font-semibold tracking-tight">
                 Cups & Cultures
               </h3>
             </div>
-            <p className="text-cream-100/40 text-sm leading-relaxed mb-6">
+            <p className="font-sans text-cream-100/35 text-xs uppercase tracking-[0.2em] mb-5">
               Tea. Culture. Connection.
-              <br />
-              A journey in every cup.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <a
-                href="https://instagram.com/cupsandculture.co"
+                href="https://instagram.com/cupsandcultures.co"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-cream-50/20 rounded-full flex items-center justify-center text-cream-50/50 hover:border-ochre-400 hover:text-ochre-400 transition-all duration-500"
+                className="w-9 h-9 border border-cream-50/15 rounded-full flex items-center justify-center text-cream-50/40 hover:border-ochre-400 hover:text-ochre-400 transition-all duration-500"
               >
-                <Instagram size={16} />
+                <Instagram size={14} />
               </a>
               <a
-                href="mailto:hello@cupsandcultures.com"
-                className="w-10 h-10 border border-cream-50/20 rounded-full flex items-center justify-center text-cream-50/50 hover:border-ochre-400 hover:text-ochre-400 transition-all duration-500"
+                href="mailto:info@cupsandcultures.co"
+                className="w-9 h-9 border border-cream-50/15 rounded-full flex items-center justify-center text-cream-50/40 hover:border-ochre-400 hover:text-ochre-400 transition-all duration-500"
               >
-                <Mail size={16} />
+                <Mail size={14} />
               </a>
             </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-cream-50/60 text-xs uppercase tracking-[0.2em] mb-6">
+            <h4 className="font-sans text-cream-50/50 text-xs uppercase tracking-[0.2em] mb-6">
               Explore
             </h4>
             <div className="space-y-3">
-              {['Our Story', 'The Menu', 'Gallery', 'Events', 'Community'].map((link) => (
+              {footerLinks.map((link) => (
                 <a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(' ', '-')}`}
-                  className="block text-cream-100/40 hover:text-ochre-400 transition-colors duration-500 text-sm"
+                  key={link.label}
+                  href={link.href}
+                  className="block font-sans text-cream-100/35 hover:text-ochre-400 transition-colors duration-500 text-sm"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>
@@ -63,32 +68,32 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-cream-50/60 text-xs uppercase tracking-[0.2em] mb-6">
+            <h4 className="font-sans text-cream-50/50 text-xs uppercase tracking-[0.2em] mb-6">
               Get in Touch
             </h4>
-            <p className="text-cream-100/40 text-sm leading-relaxed mb-4">
+            <p className="font-sans text-cream-100/35 text-sm leading-relaxed mb-4">
               Interested in hosting a tea experience or collaborating?
             </p>
             <a
-              href="mailto:hello@cupsandcultures.com"
+              href="mailto:info@cupsandcultures.co"
               className="text-ochre-400 text-sm hover:text-ochre-300 transition-colors duration-500"
             >
-              hello@cupsandcultures.com
+              info@cupsandcultures.co
             </a>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="flex items-center justify-between pt-8 border-t border-cream-50/10">
-          <p className="text-cream-100/30 text-xs">
+        <div className="flex items-center justify-between pt-8 border-t border-cream-50/8">
+          <p className="font-sans text-cream-100/25 text-xs">
             © {new Date().getFullYear()} Cups & Cultures. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}
-            className="w-10 h-10 border border-cream-50/20 rounded-full flex items-center justify-center text-cream-50/50 hover:border-ochre-400 hover:text-ochre-400 hover:-translate-y-1 transition-all duration-500"
+            className="w-9 h-9 border border-cream-50/15 rounded-full flex items-center justify-center text-cream-50/40 hover:border-ochre-400 hover:text-ochre-400 hover:-translate-y-1 transition-all duration-500"
             aria-label="Scroll to top"
           >
-            <ArrowUp size={16} />
+            <ArrowUp size={14} />
           </button>
         </div>
       </div>

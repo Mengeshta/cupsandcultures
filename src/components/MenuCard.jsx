@@ -15,9 +15,20 @@ export default function MenuCard({ tea }) {
     >
       {/* Header — minimal, typography-focused */}
       <div className="px-6 pt-6 pb-4">
-        <p className="heading-editorial text-ochre-400 mb-2">
-          {tea.origin}
-        </p>
+        <div className="flex items-center justify-between mb-2">
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-ochre-400">
+            {tea.origin}
+          </p>
+          {tea.caffeine && (
+            <span className={`font-sans text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 rounded-sm ${
+              tea.caffeine === 'caffeinated'
+                ? 'bg-terracotta-500/10 text-terracotta-500'
+                : 'bg-teal-500/10 text-teal-600'
+            }`}>
+              {tea.caffeine === 'caffeinated' ? 'Caffeine' : 'No Caffeine'}
+            </span>
+          )}
+        </div>
         <h4 className="font-serif text-espresso-900 text-2xl md:text-3xl font-medium mb-1">
           {tea.name}
         </h4>
@@ -69,15 +80,15 @@ export default function MenuCard({ tea }) {
           }`}
         >
           <div className="space-y-5">
-            {/* Ritual */}
+            {/* Ceremony */}
             <div className="flex gap-3">
               <Flame size={16} className="text-terracotta-500 mt-0.5 shrink-0" />
               <div>
                 <p className="text-xs uppercase tracking-[0.15em] font-semibold text-espresso-800 mb-1">
-                  The Ritual
+                  The Ceremony
                 </p>
                 <p className="text-espresso-700/60 text-sm leading-relaxed">
-                  {tea.culturalPairing.ritual}
+                  {tea.culturalPairing.ceremony}
                 </p>
               </div>
             </div>

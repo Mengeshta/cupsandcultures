@@ -30,13 +30,13 @@ export default function EventTeaser() {
               headerInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}
           >
-            <p className="heading-editorial text-ochre-400 mb-4">Next Gathering</p>
-            <h2 className="heading-display text-cream-50 text-4xl md:text-5xl lg:text-6xl mb-8">
+            <p className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-ochre-400 mb-4">Next Gathering</p>
+            <h2 className="font-serif text-cream-50 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-8">
               The{' '}
               <span className="text-ochre-400 italic">Inauguration</span>
             </h2>
 
-            <p className="text-cream-100/50 text-lg leading-relaxed mb-10">
+            <p className="font-sans text-cream-100/45 text-base leading-relaxed mb-10">
               Join us for our first public tasting — an evening of North African
               mint tea, Gnawa music, and the stories that bind us. Limited to
               40 guests.
@@ -45,7 +45,7 @@ export default function EventTeaser() {
             <div className="space-y-4 mb-10">
               <div className="flex items-center gap-4 text-cream-100/60">
                 <Calendar size={18} className="text-terracotta-500" />
-                <span>Coming Soon — 2025</span>
+                <span>Coming Soon — 2026</span>
               </div>
               <div className="flex items-center gap-4 text-cream-100/60">
                 <Clock size={18} className="text-terracotta-500" />
