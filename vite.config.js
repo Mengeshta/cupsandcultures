@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     open: true,
   },
-  base: '/cupsandcultures/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
