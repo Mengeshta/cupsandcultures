@@ -11,7 +11,7 @@ const pillars = [
   {
     word: 'Culture',
     description:
-      'Every tea carries a civilization\'s worth of ceremony, art, and philosophy. We bring those stories to the table — one steep at a time.',
+      'Every tea carries a civilization\'s worth of ceremony, art, and philosophy. We bring those stories to the table — one step at a time.',
     accent: 'text-ochre-400',
     line: 'bg-ochre-400',
   },
