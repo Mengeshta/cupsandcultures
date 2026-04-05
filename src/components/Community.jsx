@@ -11,17 +11,17 @@ const schedule = [
   },
   {
     time: '7:30 PM',
-    title: 'First Pour — The Welcome',
-    detail: 'Moroccan mint tea, poured from silver teapots at height. Sweet, bright, and impossibly fragrant — the kind of warmth that loosens shoulders and starts smiles.',
-    tea: 'Moroccan Mint · Morocco',
-    playlist: 'Gnawa & Andalusian classics',
+    title: 'First Pour — The Spark',
+    detail: 'Bold masala chai in clay kulhads. The evening ignites with spice and warmth. This is the conversation starter — the pour that awakens.',
+    tea: 'Masala Chai · India',
+    playlist: 'Sitar ragas, Ravi Shankar',
   },
   {
     time: '8:15 PM',
-    title: 'Second Pour — The Conversation',
-    detail: 'Masala chai arrives bold and spiced in handmade clay kulhads. Tables shift, voices soften, and the room starts to feel like it has known you for years.',
-    tea: 'Masala Chai · India',
-    playlist: 'Ravi Shankar, sitar ragas',
+    title: 'Second Pour — The Sweet',
+    detail: 'Moroccan mint tea poured from silver teapots at height. Bright, refreshing, and impossibly fragrant — the heart of the evening.',
+    tea: 'Moroccan Mint · Morocco',
+    playlist: 'Gnawa & Andalusian classics',
   },
   {
     time: '8:50 PM',
@@ -31,17 +31,16 @@ const schedule = [
   },
   {
     time: '9:10 PM',
-    title: 'Third Pour — The Stillness',
-    detail: 'The lights go low. Hojicha — roasted, nutty, almost no caffeine — arrives warm in your hands. This is the quietest part of the night. Be here for it.',
-    tea: 'Hojicha · Japan',
-    playlist: 'Shakuhachi flute, ambient Zen',
+    title: 'Third Pour — The Calm',
+    detail: 'Herbal rosewater tisane arrives — caffeine-free, delicate, and calming. The evening settles into tranquility as the lights go low.',
+    tea: 'Rosewater Tisane · North Africa',
+    playlist: 'Andalusian oud, soft desert melodies',
   },
   {
     time: '9:40 PM',
-    title: 'Final Pour — The Farewell',
-    detail: 'Saharan Tuareg tea, brewed tableside over coals. Rich, sweet, unhurried. You\'ll leave with a small parcel of the evening\'s teas and a reason to come back.',
-    tea: 'Saharan Tuareg · Niger',
-    playlist: 'Tinariwen, desert blues',
+    title: 'The Farewell',
+    detail: 'No more pours. Just quiet conversation and a small parcel of the evening\'s teas to take home. You\'ll leave with a reason to come back.',
+    tea: null,
   },
 ]
 
@@ -69,13 +68,12 @@ export default function Community() {
             Your Evening
           </p>
           <h2 className="font-serif text-cream-50 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
-            Slow Down. <span className="text-ochre-400 italic">Stay Awhile.</span>
+            Three Pours. <span className="text-ochre-400 italic">One Journey.</span>
           </h2>
           <p className="font-sans text-cream-100/40 text-sm md:text-base leading-relaxed max-w-lg mx-auto">
-            This isn't an event with a rigid itinerary.
-            It's an evening designed to feel like the coziest living room
-            you've ever walked into — warm light, quiet music, and a cup
-            that never goes cold.
+            From spicy to sweet to herbal, each pour follows a deliberate rhythm.
+            No rush. No rigid itinerary. Just tea, stories, and the people
+            beside you.
           </p>
         </div>
 

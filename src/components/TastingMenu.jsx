@@ -34,6 +34,9 @@ export default function TastingMenu() {
             Explore origins. Discover the flavor, the ceremony, and the story
             behind each tea tradition.
           </p>
+          <p className="font-sans text-ochre-400/60 text-sm mt-3">
+            Our first event follows a three-course journey: spicy → sweet → herbal
+          </p>
         </div>
 
         {/* Caffeine toggle */}

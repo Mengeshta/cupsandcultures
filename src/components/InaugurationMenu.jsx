@@ -4,26 +4,11 @@ import { Flame, Music, BookOpen, Thermometer, Clock } from 'lucide-react'
 const courses = [
   {
     course: 'First Pour',
-    title: 'Moroccan Mint — "The Welcome"',
-    origin: 'Morocco',
-    tea: 'Gunpowder Green with Fresh Spearmint',
-    description:
-      'Your evening begins the way it has for centuries across the Maghreb — with a glass of mint tea poured from height. Gentle as life, this first glass opens the senses and invites you in.',
-    temp: '80°C',
-    time: '3 min',
-    pairing: 'Mint tea–glazed almond pastilla, spearmint shortbread, green tea–infused honey drizzle on fig crisps',
-    ceremony:
-      'Poured from a silver teapot held high above the glass — the cascade aerates the tea and builds a light foam, a sign of a skilled host.',
-    music: 'Gnawa percussion & Andalusian melodies — scan the teapot to listen',
-    color: 'from-teal-600/90 to-teal-800/90',
-  },
-  {
-    course: 'Second Pour',
-    title: 'Masala Chai — "The Conversation"',
+    title: 'Masala Chai — "The Spark"',
     origin: 'India',
     tea: 'Assam CTC with Cardamom, Ginger, Cinnamon & Clove',
     description:
-      'As the room warms and connections form, the second course arrives — bold, spiced, and deeply aromatic. Served in small clay kulhads that you crack open yourself.',
+      'The evening ignites with bold, spiced chai. Served in traditional clay kulhads that you crack open yourself, this pour awakens the palate and sparks conversation.',
     temp: '100°C',
     time: 'Simmered 6 min',
     pairing: 'Chai-spiced shortbread, masala tea–infused pistachio bark, cardamom-tea caramels',
@@ -33,33 +18,33 @@ const courses = [
     color: 'from-terracotta-500/90 to-terracotta-800/90',
   },
   {
-    course: 'Third Pour',
-    title: 'Hojicha — "The Stillness"',
-    origin: 'Kyoto, Japan',
-    tea: 'Roasted Green Tea — warm, nutty, naturally low caffeine',
+    course: 'Second Pour',
+    title: 'Moroccan Mint — "The Sweet"',
+    origin: 'Morocco',
+    tea: 'Gunpowder Green with Fresh Spearmint',
     description:
-      'The energy shifts. The room softens. Hojicha arrives warm and toasty — roasted over charcoal, it is the evening tea of Japan. A cup of calm before the farewell.',
-    temp: '90°C',
-    time: '1–2 min',
-    pairing: 'Hojicha–infused sesame brittle, roasted rice tea cookies, yuzu-tea curd tartlet',
+      'The energy softens as sweet mint tea arrives, poured from silver teapots at height. Bright, refreshing, and impossibly fragrant — this is the heart of the evening.',
+    temp: '80°C',
+    time: '3 min',
+    pairing: 'Mint tea–glazed almond pastilla, spearmint shortbread, green tea–infused honey drizzle on fig crisps',
     ceremony:
-      'Roasted in porcelain pots over charcoal. The deep amber color and gentle aroma signal the quietest part of the evening.',
-    music: 'Shakuhachi flute, ambient Zen — scan the teapot to listen',
-    color: 'from-espresso-700/90 to-espresso-900/90',
+      'Poured from a silver teapot held high above the glass — the cascade aerates the tea and builds a light foam, a sign of a skilled host.',
+    music: 'Gnawa percussion & Andalusian melodies — scan the teapot to listen',
+    color: 'from-teal-600/90 to-teal-800/90',
   },
   {
-    course: 'Final Pour',
-    title: 'Saharan Tuareg — "The Departure"',
-    origin: 'Niger / Mali',
-    tea: 'Strong Gunpowder Green with Heavy Sugar',
+    course: 'Third Pour',
+    title: 'Rosewater Tisane — "The Calm"',
+    origin: 'North Africa',
+    tea: 'Herbal Rosewater Blend with Hibiscus & Mint',
     description:
-      'The final glass. In Tuareg tradition, the third pour is "bitter as death" — a reminder that all beautiful things end, making them more precious. Tonight, we sweeten the farewell.',
+      'The evening settles into tranquility with a caffeine-free herbal infusion. Rosewater and hibiscus create a delicate, calming finish that lingers like a fond memory.',
     temp: '85°C',
-    time: '5 min',
-    pairing: 'Gunpowder tea–infused dates with orange blossom cream, green tea dark chocolate truffles with sea salt',
+    time: '4 min',
+    pairing: 'Rosewater tea macarons, hibiscus-infused shortbread, lavender-tea truffles',
     ceremony:
-      'Brewed over a small charcoal brazier at the table. The tea is poured back and forth between two glasses to aerate and cool — a desert ceremony of patience.',
-    music: 'Tinariwen, desert blues — scan the teapot to listen',
+      'Steamed gently to preserve the delicate rosewater essence. Served in glass cups to showcase the beautiful pink hue.',
+    music: 'Andalusian oud, soft desert melodies — scan the teapot to listen',
     color: 'from-ochre-500/90 to-ochre-800/90',
   },
 ]
@@ -84,9 +69,9 @@ export default function InaugurationMenu() {
             The Inauguration <span className="text-terracotta-500 italic">Tasting Menu</span>
           </h2>
           <p className="font-sans text-espresso-700/55 text-base leading-relaxed max-w-2xl mx-auto">
-            This is what awaits you at our very first gathering — four pours drawn
-            from the teas we offer, each paired with tea-infused treats and a
-            curated playlist you can scan right from the teapot.
+            This is what awaits you at our very first gathering — three pours that
+            move from spicy to sweet to herbal. Each is paired with tea-infused treats
+            and a curated playlist you can scan right from the teapot.
           </p>
         </div>
 
