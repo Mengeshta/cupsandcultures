@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import { Music, BookOpen, Flame, Clock, Thermometer, ChevronDown } from 'lucide-react'
+import { Music, BookOpen, Flame, Clock, Thermometer, ChevronDown, ArrowUpRight } from 'lucide-react'
 import FlavorProfile from './FlavorProfile'
+import TeaDetailModal from './TeaDetailModal'
 
 export default function MenuCard({ tea }) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <div
@@ -119,8 +121,24 @@ export default function MenuCard({ tea }) {
               </div>
             </div>
           </div>
+
+          {/* View Full Detail button */}
+          <button
+            onClick={() => setShowModal(true)}
+            className="mt-6 w-full flex items-center justify-center gap-2 py-3 border border-ochre-400/20 rounded-sm text-ochre-500 hover:bg-ochre-400 hover:text-espresso-900 transition-all duration-700"
+          >
+            <span className="text-xs uppercase tracking-[0.2em] font-medium">
+              View Full Detail
+            </span>
+            <ArrowUpRight size={14} />
+          </button>
         </div>
       </div>
+
+      {/* Tea Detail Modal */}
+      {showModal && (
+        <TeaDetailModal tea={tea} onClose={() => setShowModal(false)} />
+      )}
     </div>
   )
 }

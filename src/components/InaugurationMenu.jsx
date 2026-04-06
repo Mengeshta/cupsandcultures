@@ -88,8 +88,10 @@ export default function InaugurationMenu() {
           <p className="font-serif text-espresso-900 text-xl md:text-2xl italic leading-relaxed mb-4">
             "The first cup is for the stranger. The second, for the friend.
             The third, for the one who will return."
+            <span className="block text-sm text-espresso-700/60 mt-2 not-italic">
+              — Cups & Cultures
+            </span>
           </p>
-          <p className="text-espresso-700/50 text-sm">— Maghreb proverb</p>
         </div>
       </div>
 

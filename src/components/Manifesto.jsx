@@ -2,23 +2,23 @@ import { useInView } from '../hooks/useInView'
 
 const pillars = [
   {
-    word: 'Tea',
+    word: 'History',
     description:
-      'We source the world\'s most storied leaves — from misty Darjeeling hills to the red earth of Yunnan. Each cup carries the character of the land it grew from.',
+      'Every cup holds centuries of human story. From ancient Chinese dynasties to East African trade routes to South American indigenous traditions — we trace how beverages shaped economies, empires, and everyday life.',
     accent: 'text-terracotta-500',
     line: 'bg-terracotta-500',
   },
   {
-    word: 'Culture',
+    word: 'Wellness',
     description:
-      'Every tea carries a civilization\'s worth of ceremony, art, and philosophy. We bring those stories to the table — one step at a time.',
+      'Tea has been used as medicine for millennia. We explore the science behind the leaf — antioxidants, adaptogens, gut health, mental clarity — so every cup you drink is one you understand.',
     accent: 'text-ochre-400',
     line: 'bg-ochre-400',
   },
   {
-    word: 'Connection',
+    word: 'Culture',
     description:
-      'Tea has always been shared. We create spaces where strangers become friends over a warm cup — no hierarchy, just people.',
+      'How a nation prepares its cup tells you everything about its values. We study the art, music, philosophy, and social fabric woven into every brewing tradition across the globe.',
     accent: 'text-teal-600',
     line: 'bg-teal-600',
   },
@@ -26,6 +26,7 @@ const pillars = [
 
 export default function Manifesto() {
   const [headerRef, headerInView] = useInView()
+  const [storyRef, storyInView] = useInView({ threshold: 0.1 })
   const [pillarsRef, pillarsInView] = useInView({ threshold: 0.1 })
 
   return (
@@ -47,10 +48,41 @@ export default function Manifesto() {
             More Than a Beverage
           </h2>
           <p className="font-sans text-espresso-700/50 text-base md:text-lg leading-relaxed">
-            For thousands of years, tea has been the thread that weaves communities
-            together — across deserts, mountains, and oceans.
-            We exist to honor that thread.
+            Cups & Cultures is an immersive experience built around one idea: that
+            the history inside your cup is as rich as anything in a textbook — and
+            far more worth sharing.
           </p>
+        </div>
+
+        {/* In-depth story */}
+        <div
+          ref={storyRef}
+          className={`max-w-3xl mx-auto mb-20 md:mb-24 transition-all duration-[1200ms] ease-out ${
+            storyInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="space-y-6 text-center">
+            <p className="font-sans text-espresso-700/50 text-sm md:text-base leading-relaxed">
+              Tea didn't just quench thirst — it shaped civilizations. It funded dynasties in China, fueled colonial economies across three continents, and sparked revolutions from Boston to India. Understanding tea means understanding <em className="text-espresso-800 not-italic font-medium">world history</em> through a lens most people have never considered.
+            </p>
+            <p className="font-sans text-espresso-700/50 text-sm md:text-base leading-relaxed">
+              Beyond its history, tea is one of the most studied plants on earth for its health benefits — from the L-theanine in green tea that sharpens focus, to the polyphenols in black tea linked to heart health, to the anti-inflammatory properties of rooibos and moringa that communities have relied on for generations. We believe you should <em className="text-espresso-800 not-italic font-medium">know what you're drinking</em> and why it matters.
+            </p>
+            <p className="font-sans text-espresso-700/50 text-sm md:text-base leading-relaxed">
+              And then there's the cultural dimension. How a nation prepares its cup reveals its values — hospitality in Morocco, democracy in Argentina's mate circles, mindfulness in Japan. These aren't quaint traditions. They're living philosophies, passed down through centuries, that still have something to teach us.
+            </p>
+            <p className="font-sans text-espresso-700/50 text-sm md:text-base leading-relaxed">
+              Cups & Cultures brings all of this together. We're an <em className="text-espresso-800 not-italic font-medium">educational experience</em> — part tasting, part history lesson, part wellness exploration — designed to leave you knowing more about the world than when you walked in.
+            </p>
+          </div>
+
+          <div className="flex items-center justify-center gap-3 mt-10">
+            <div className="w-8 h-px bg-terracotta-500/30" />
+            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-espresso-700/30">
+              History · Wellness · Culture
+            </span>
+            <div className="w-8 h-px bg-terracotta-500/30" />
+          </div>
         </div>
 
         {/* Three pillars — clean, typographic */}

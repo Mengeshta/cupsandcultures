@@ -1,173 +1,163 @@
 import { useState } from 'react'
 import { useInView } from '../hooks/useInView'
-import { ChevronDown, QrCode } from 'lucide-react'
-
-const schedule = [
-  {
-    time: '7:00 PM',
-    title: 'Settle In',
-    detail: 'Sink into the space. A warm welcome cup is already waiting — no agenda, no introductions. Just arrive as you are.',
-    tea: null,
-  },
-  {
-    time: '7:30 PM',
-    title: 'First Pour — The Spark',
-    detail: 'Bold masala chai in clay kulhads. The evening ignites with spice and warmth. This is the conversation starter — the pour that awakens.',
-    tea: 'Masala Chai · India',
-    playlist: 'Sitar ragas, Ravi Shankar',
-  },
-  {
-    time: '8:15 PM',
-    title: 'Second Pour — The Sweet',
-    detail: 'Moroccan mint tea poured from silver teapots at height. Bright, refreshing, and impossibly fragrant — the heart of the evening.',
-    tea: 'Moroccan Mint · Morocco',
-    playlist: 'Gnawa & Andalusian classics',
-  },
-  {
-    time: '8:50 PM',
-    title: 'A Gentle Pause',
-    detail: 'No schedule. No speaker. Just a quiet moment to stretch, wander the textiles, and let the evening breathe. Some of the best conversations happen right here.',
-    tea: null,
-  },
-  {
-    time: '9:10 PM',
-    title: 'Third Pour — The Calm',
-    detail: 'Herbal rosewater tisane arrives — caffeine-free, delicate, and calming. The evening settles into tranquility as the lights go low.',
-    tea: 'Rosewater Tisane · North Africa',
-    playlist: 'Andalusian oud, soft desert melodies',
-  },
-  {
-    time: '9:40 PM',
-    title: 'The Farewell',
-    detail: 'No more pours. Just quiet conversation and a small parcel of the evening\'s teas to take home. You\'ll leave with a reason to come back.',
-    tea: null,
-  },
-]
+import { Mail, ArrowRight, Instagram } from 'lucide-react'
+import { submitToSheets } from '../utils/googleSheets'
 
 export default function Community() {
-  const [headerRef, headerInView] = useInView()
-  const [promiseRef, promiseInView] = useInView()
-  const [scheduleRef, scheduleInView] = useInView({ threshold: 0.05 })
-  const [openIndex, setOpenIndex] = useState(null)
+  const [ref, inView] = useInView()
+  const [formRef, formInView] = useInView()
+  const [email, setEmail] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  const toggle = (i) => setOpenIndex(openIndex === i ? null : i)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    await submitToSheets('newsletter', { email })
+    setSubmitted(true)
+    setSubmitting(false)
+  }
 
   return (
-    <section id="community" className="relative bg-espresso-900 overflow-hidden">
-      <div className="absolute inset-0 geometric-pattern opacity-3" />
+    <section id="connect" className="relative bg-cream-50 overflow-hidden">
+      <div className="ikat-border w-full" />
 
       <div className="relative section-padding max-w-4xl mx-auto">
         {/* Header */}
         <div
-          ref={headerRef}
-          className={`text-center max-w-2xl mx-auto mb-10 transition-all duration-[1200ms] ease-out ${
-            headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          ref={ref}
+          className={`text-center max-w-2xl mx-auto mb-14 transition-all duration-[1200ms] ease-out ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-ochre-400 mb-4">
-            Your Evening
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-terracotta-500 mb-4">
+            Stay Connected
           </p>
-          <h2 className="font-serif text-cream-50 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
-            Three Pours. <span className="text-ochre-400 italic">One Journey.</span>
+          <h2 className="font-serif text-espresso-900 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
+            The Learning <span className="text-terracotta-500 italic">Continues</span>
           </h2>
-          <p className="font-sans text-cream-100/40 text-sm md:text-base leading-relaxed max-w-lg mx-auto">
-            From spicy to sweet to herbal, each pour follows a deliberate rhythm.
-            No rush. No rigid itinerary. Just tea, stories, and the people
-            beside you.
+          <p className="font-sans text-espresso-700/50 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+            Our events end, but the exploration doesn't have to. We send deep dives on the history behind what you're drinking, the science of how it heals, and the cultures that shaped it — so every cup you pour at home carries a little more meaning.
           </p>
         </div>
 
-        {/* The promise — CMO copy block */}
+        {/* Newsletter signup */}
         <div
-          ref={promiseRef}
-          className={`grid sm:grid-cols-3 gap-6 mb-14 transition-all duration-[1200ms] ease-out ${
-            promiseInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          ref={formRef}
+          className={`max-w-xl mx-auto mb-20 transition-all duration-[1200ms] ease-out delay-200 ${
+            formInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
+          <div className="bg-espresso-900 border border-espresso-800 rounded-sm p-8 md:p-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 border border-ochre-400/30 rounded-full flex items-center justify-center">
+                <Mail size={16} className="text-ochre-400" />
+              </div>
+              <div>
+                <h3 className="font-serif text-cream-50 text-lg font-medium">
+                  The Cups & Cultures Letter
+                </h3>
+                <p className="text-cream-100/40 text-xs">
+                  History, wellness, and culture in your inbox — once or twice a month
+                </p>
+              </div>
+            </div>
+
+            {!submitted ? (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="flex gap-3">
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 bg-transparent border-b border-cream-50/20 text-cream-50 py-3 px-1 focus:border-ochre-400 focus:outline-none transition-colors duration-500 placeholder:text-cream-100/20 text-sm"
+                    placeholder="your@email.com"
+                  />
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className={`px-6 py-3 bg-terracotta-500 text-cream-50 font-medium uppercase tracking-[0.15em] text-xs rounded-sm hover:bg-terracotta-600 transition-all duration-500 flex items-center gap-2 group shrink-0 ${
+                      submitting ? 'opacity-60 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    {submitting ? 'Joining…' : 'Subscribe'}
+                    {!submitting && (
+                      <ArrowRight
+                        size={14}
+                        className="group-hover:translate-x-1 transition-transform duration-500"
+                      />
+                    )}
+                  </button>
+                </div>
+                <p className="text-cream-100/25 text-[10px] tracking-wide">
+                  No spam, ever. Unsubscribe anytime.
+                </p>
+              </form>
+            ) : (
+              <div className="text-center py-4">
+                <div className="w-12 h-12 border-2 border-ochre-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-ochre-400 text-xl">✓</span>
+                </div>
+                <h4 className="font-serif text-cream-50 text-lg mb-1">
+                  You're in.
+                </h4>
+                <p className="text-cream-100/40 text-sm">
+                  Your first letter is on its way — start with the story of how tea changed the world.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* What you'll get */}
+        <div className="grid sm:grid-cols-3 gap-8 mb-16">
           {[
-            { accent: 'text-terracotta-500', line: 'bg-terracotta-500', text: 'No small talk required. Just sit, sip, and let the tea do the introductions.' },
-            { accent: 'text-ochre-400', line: 'bg-ochre-400', text: 'Every playlist is scannable from the teapot — music from the homeland of whatever you\'re drinking.' },
-            { accent: 'text-teal-500', line: 'bg-teal-500', text: 'You\'ll leave with tea to take home, a quieter mind, and the feeling that the world just got a little smaller.' },
+            {
+              accent: 'border-terracotta-500',
+              title: 'History Deep Dives',
+              text: 'How tea toppled empires, funded revolutions, and traveled the Silk Road — stories you won\'t find on a label.',
+            },
+            {
+              accent: 'border-ochre-400',
+              title: 'Wellness & Science',
+              text: 'The research behind the leaf — antioxidants, adaptogens, gut health — explained clearly so you know what every cup is doing for you.',
+            },
+            {
+              accent: 'border-teal-500',
+              title: 'Cultural Exploration',
+              text: 'Music, philosophy, and the social traditions behind every brewing culture — from Japanese mindfulness to Argentine democracy.',
+            },
           ].map((item, i) => (
-            <div
-              key={i}
-              className="text-center px-4"
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <div className={`w-8 h-px ${item.line} mx-auto mb-4 opacity-40`} />
-              <p className="font-sans text-cream-100/35 text-xs leading-relaxed">
+            <div key={i} className="text-center px-4">
+              <div className={`w-10 h-10 border ${item.accent} rounded-full mx-auto mb-4 flex items-center justify-center`}>
+                <span className="font-serif text-espresso-900 text-sm font-medium">{i + 1}</span>
+              </div>
+              <h4 className="font-serif text-espresso-900 text-base font-medium mb-2">
+                {item.title}
+              </h4>
+              <p className="font-sans text-espresso-700/45 text-xs leading-relaxed">
                 {item.text}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Schedule accordion */}
-        <div
-          ref={scheduleRef}
-          className="space-y-0 border-t border-cream-50/8"
-        >
-          {schedule.map((item, i) => (
-            <div
-              key={i}
-              className={`border-b border-cream-50/8 transition-all duration-700 ease-out ${
-                scheduleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              <button
-                onClick={() => toggle(i)}
-                className="w-full flex items-center gap-6 py-5 md:py-6 text-left group"
-              >
-                <span className="font-sans text-ochre-400/70 text-xs uppercase tracking-[0.15em] w-20 shrink-0">
-                  {item.time}
-                </span>
-                <span className="font-serif text-cream-50 text-base md:text-lg font-medium flex-1 group-hover:text-ochre-400 transition-colors duration-500">
-                  {item.title}
-                </span>
-                <ChevronDown
-                  size={16}
-                  className={`text-cream-50/30 shrink-0 transition-transform duration-500 ${
-                    openIndex === i ? 'rotate-180 text-ochre-400' : ''
-                  }`}
-                />
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  openIndex === i ? 'max-h-48 opacity-100 pb-6' : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="pl-[104px]">
-                  <p className="font-sans text-cream-100/40 text-sm leading-relaxed mb-3">
-                    {item.detail}
-                  </p>
-                  {item.tea && (
-                    <div className="flex flex-wrap items-center gap-x-6 gap-y-1 text-xs">
-                      <span className="text-terracotta-500 font-medium">{item.tea}</span>
-                      {item.playlist && (
-                        <span className="text-cream-100/25 flex items-center gap-1.5">
-                          <QrCode size={10} />
-                          {item.playlist}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Closing note */}
-        <div className="text-center mt-16">
-          <div className="w-12 h-px bg-ochre-400/30 mx-auto mb-6" />
-          <p className="font-serif text-cream-50/55 text-base md:text-lg italic leading-relaxed max-w-md mx-auto mb-2">
-            You don't need a reason to come. Just a willingness to slow down.
+        {/* Social CTA */}
+        <div className="text-center">
+          <div className="w-12 h-px bg-terracotta-500/30 mx-auto mb-6" />
+          <p className="font-sans text-espresso-700/40 text-xs uppercase tracking-[0.2em] mb-4">
+            Explore With Us
           </p>
-          <p className="font-sans text-cream-100/20 text-xs tracking-wide">
-            Tea. Culture. Connection.
-          </p>
+          <a
+            href="https://instagram.com/cupsandcultures.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3 border border-espresso-900/15 text-espresso-900 font-sans font-medium uppercase tracking-[0.18em] text-xs rounded-sm hover:border-terracotta-500 hover:text-terracotta-500 transition-all duration-500"
+          >
+            <Instagram size={14} />
+            @cupsandcultures.co
+          </a>
         </div>
       </div>
     </section>

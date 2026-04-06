@@ -5,7 +5,7 @@ const footerLinks = [
   { label: 'Our Story', section: 'our-story' },
   { label: 'The Menu', section: 'tasting-menu' },
   { label: 'Events', section: 'events' },
-  { label: 'Connect', section: 'community' },
+  { label: 'Connect', section: 'connect' },
 ]
 
 const scrollTo = (sectionId) => {

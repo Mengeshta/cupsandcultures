@@ -5,7 +5,6 @@ import TastingMenu from './components/TastingMenu'
 import InaugurationMenu from './components/InaugurationMenu'
 import EventTeaser from './components/EventTeaser'
 import Community from './components/Community'
-import SocialFeed from './components/SocialFeed'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -18,7 +17,6 @@ export default function App() {
       <InaugurationMenu />
       <EventTeaser />
       <Community />
-      <SocialFeed />
       <Footer />
     </div>
   )

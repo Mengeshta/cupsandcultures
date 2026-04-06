@@ -80,10 +80,10 @@ export default function Hero() {
           style={{ animationDelay: '1.5s' }}
         >
           <a
-            href="#our-story"
+            href="#events"
             className="px-8 py-3.5 bg-terracotta-500 text-cream-50 font-sans font-medium uppercase tracking-[0.18em] text-xs rounded-sm hover:bg-terracotta-600 transition-all duration-700 hover:shadow-lg hover:shadow-terracotta-500/20"
           >
-            Our Story
+            Reserve Your Seat
           </a>
           <a
             href="#tasting-menu"
