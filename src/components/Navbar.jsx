@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Menu, X } from 'lucide-react'
-import logoWhite from '/assets/logo-icon-white.png'
+import logoIcon from '/assets/logo-icon-new.png'
 
 const navLinks = [
   { label: 'Our Story', section: 'our-story' },
@@ -39,7 +39,7 @@ export default function Navbar() {
         {/* Logo */}
         <button onClick={() => scrollTo('hero')} className="flex items-center gap-3 group">
           <img
-            src={logoWhite}
+            src={logoIcon}
             alt="Cups & Cultures"
             className="w-9 h-9 md:w-10 md:h-10 transition-transform duration-500 group-hover:scale-105"
           />

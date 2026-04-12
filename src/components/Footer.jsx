@@ -1,5 +1,5 @@
 import { Instagram, Mail, ArrowUp } from 'lucide-react'
-import logoWhite from '/assets/logo-icon-white.png'
+import logoIcon from '/assets/logo-icon-new.png'
 
 const footerLinks = [
   { label: 'Our Story', section: 'our-story' },
@@ -27,7 +27,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <img src={logoWhite} alt="Cups & Cultures" className="w-10 h-10" />
+              <img src={logoIcon} alt="Cups & Cultures" className="w-10 h-10" />
               <h3 className="font-serif text-cream-50 text-xl font-semibold tracking-tight">
                 Cups & Cultures
               </h3>
