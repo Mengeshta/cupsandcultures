@@ -19,7 +19,7 @@ export default function Community() {
   }
 
   return (
-    <section id="connect" className="relative bg-cream-50 overflow-hidden">
+    <section id="community" className="relative bg-cream-50 overflow-hidden">
       <div className="ikat-border w-full" />
 
       <div className="relative section-padding max-w-4xl mx-auto">

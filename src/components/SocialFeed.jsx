@@ -5,7 +5,7 @@ export default function SocialFeed() {
   const [ref, inView] = useInView()
 
   return (
-    <section className="relative bg-cream-50 overflow-hidden">
+    <section id="connect" className="relative bg-cream-50 overflow-hidden">
       <div className="ikat-border w-full" />
 
       <div className="px-6 md:px-12 lg:px-24 py-16 md:py-24 max-w-3xl mx-auto">
