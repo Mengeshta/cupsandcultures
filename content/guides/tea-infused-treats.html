@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cups &amp; Cultures — Tea-Infused Treats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #A0522D;
+    --ochre: #DAA520;
+    --espresso: #3D2B1F;
+    --cream: #FDF5E6;
+    --teal: #35817b;
+    --paper: #FAF3E3;
+  }
+  @page { margin: 0.75in; size: letter; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.65;
+    color: var(--espresso);
+    background: var(--paper);
+    margin: 0;
+    font-size: 10.5pt;
+  }
+  .toolbar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--espresso); color: var(--cream);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .toolbar .brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; }
+  .toolbar .brand span { color: var(--ochre); }
+  .toolbar .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .toolbar button, .toolbar a.btn {
+    background: transparent;
+    border: 1px solid rgba(253,245,230,0.25);
+    color: var(--cream);
+    padding: 8px 14px;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+    cursor: pointer; border-radius: 2px; text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .toolbar button:hover, .toolbar a.btn:hover {
+    background: var(--ochre); color: var(--espresso); border-color: var(--ochre);
+  }
+  .toolbar .primary { background: var(--ochre); color: var(--espresso); border-color: var(--ochre); }
+  .toolbar .primary:hover { background: var(--cream); border-color: var(--cream); }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 48px 32px 96px; }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--espresso);
+    font-size: 42px; font-weight: 600; text-align: center;
+    margin: 0 0 8px; line-height: 1.1;
+  }
+  h1 .accent { color: var(--terracotta); font-style: italic; }
+  .subtitle {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 16px; color: rgba(61,43,31,0.65);
+    margin: 0 0 40px;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--terracotta);
+    font-size: 26px; font-weight: 600;
+    margin: 48px 0 12px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--ochre);
+  }
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--espresso);
+    font-size: 22px; font-weight: 600; margin: 32px 0 8px;
+  }
+  h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--terracotta);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    margin: 20px 0 8px;
+  }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 16px 0 24px; font-size: 10pt;
+    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  th {
+    background: var(--espresso); color: var(--cream);
+    text-align: left; padding: 10px 12px;
+    font-weight: 600; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  td { border-bottom: 1px solid rgba(61,43,31,0.1); padding: 10px 12px; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(250,243,227,0.5); }
+  td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .why {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 15px;
+    color: rgba(61,43,31,0.75);
+    border-left: 3px solid var(--ochre);
+    padding: 8px 16px;
+    margin: 8px 0 16px;
+    background: rgba(218,165,32,0.06);
+  }
+  .recipe {
+    border: 1px solid rgba(61,43,31,0.08);
+    background: #fff;
+    padding: 24px 28px;
+    margin: 28px 0;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    position: relative;
+  }
+  .recipe.fusion::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--ochre), var(--terracotta), var(--ochre));
+    border-radius: 3px 3px 0 0;
+  }
+  .pair-line {
+    font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ochre); font-weight: 600; margin-bottom: 6px;
+  }
+  .pair-line span.tea { color: var(--terracotta); }
+  ol, ul { padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  .callout {
+    margin: 16px 0; padding: 12px 16px;
+    background: rgba(160,82,45,0.08);
+    border-left: 3px solid var(--terracotta);
+    border-radius: 2px;
+    font-size: 10pt;
+  }
+  .toc {
+    background: rgba(61,43,31,0.04);
+    border-left: 3px solid var(--ochre);
+    padding: 20px 24px;
+    margin: 24px 0 40px;
+  }
+  .toc ol { margin: 8px 0 0; padding-left: 20px; }
+  .toc li { margin-bottom: 6px; font-size: 10.5pt; }
+  a { color: var(--terracotta); text-decoration: none; border-bottom: 1px dotted rgba(160,82,45,0.4); }
+  a:hover { color: var(--ochre); border-bottom-color: var(--ochre); }
+  hr { border: none; border-top: 1px solid rgba(61,43,31,0.12); margin: 40px 0; }
+  .footer-brand {
+    text-align: center; margin-top: 60px; padding-top: 32px;
+    border-top: 2px solid var(--ochre);
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    color: rgba(61,43,31,0.6);
+  }
+  @media print {
+    .toolbar { display: none; }
+    body { background: #fff; }
+    .recipe { break-inside: avoid; }
+    a { color: var(--espresso); border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="brand">Cups <span>&amp;</span> Cultures — Tea-Infused Treats</div>
+  <div class="actions">
+    <button onclick="window.print()">Print / Save PDF</button>
+    <a class="btn" href="tea-infused-treats.md" download>Download .md</a>
+    <button class="primary" onclick="openGoogleDocs()">Open Google Docs</button>
+  </div>
+</div>
+
+<div class="container">
+
+<h1>Tea-Infused <span class="accent">Treats</span></h1>
+<p class="subtitle">A recipe paired to every tea and signature fusion.</p>
+
+<div class="toc">
+  <h4 style="margin-top:0">Table of Contents</h4>
+  <ol>
+    <li><a href="#pantry">Master Pastry Pantry</a></li>
+    <li><a href="#regions">By Region</a>
+      <ul>
+        <li><a href="#north-africa">North Africa</a></li>
+        <li><a href="#east-asia">East Asia</a></li>
+        <li><a href="#south-america">South America</a></li>
+        <li><a href="#south-asia">South Asia</a></li>
+      </ul>
+    </li>
+    <li><a href="#fusions">By Signature Fusion</a></li>
+    <li><a href="#techniques">Universal Techniques</a></li>
+    <li><a href="#matrix">Event Pairing Matrix</a></li>
+    <li><a href="#allergens">Allergen &amp; Dietary Notes</a></li>
+  </ol>
+</div>
+
+<div class="callout">
+  <strong>Yields are standardized:</strong> 1× batch = 12 tasting portions. Scale × 2 for a 24-guest pop-up, × 4 for a 50-guest flagship.
+</div>
+
+<!-- PANTRY -->
+<h2 id="pantry">🧈 Master Pastry Pantry</h2>
+<table>
+<thead><tr><th>Category</th><th style="text-align:left">Items</th></tr></thead>
+<tbody>
+<tr><td>Dairy</td><td style="text-align:left">Heavy cream · whole milk · cultured butter · mascarpone</td></tr>
+<tr><td>Sugars</td><td style="text-align:left">Caster · light brown · dark muscovado · orange-blossom honey</td></tr>
+<tr><td>Flours</td><td style="text-align:left">AP · almond · rice · semolina</td></tr>
+<tr><td>Nuts</td><td style="text-align:left">Almonds · pistachios · walnuts</td></tr>
+<tr><td>Chocolate</td><td style="text-align:left">70% dark (Valrhona/Guittard) · cocoa powder · white chocolate</td></tr>
+<tr><td>Flavor bridges</td><td style="text-align:left">Rosewater · orange-blossom water · vanilla bean · fleur de sel</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<!-- BY REGION -->
+<h2 id="regions">🌍 By Region</h2>
+
+<!-- NORTH AFRICA -->
+<h3 id="north-africa">North Africa</h3>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Moroccan Mint</span></div>
+<h3 style="margin-top:0">🌿 Mint-Glazed Semolina Cake (Meskouta bil-Na'na)</h3>
+<p class="why">Same mint, same sugar profile, same dusty Marrakech afternoon.</p>
+<h4>Ingredients — 12 portions</h4>
+<table>
+<tbody>
+<tr><td>Fine semolina</td><td>200 g</td></tr>
+<tr><td>AP flour</td><td>80 g</td></tr>
+<tr><td>Caster sugar</td><td>150 g</td></tr>
+<tr><td>Baking powder</td><td>10 g</td></tr>
+<tr><td>Plain yogurt</td><td>180 g</td></tr>
+<tr><td>Neutral oil</td><td>100 ml</td></tr>
+<tr><td>Eggs</td><td>2</td></tr>
+<tr><td>Orange zest</td><td>1 orange</td></tr>
+<tr><td><em>Mint glaze:</em> Moroccan Mint (strong) + sugar + fresh spearmint</td><td>100 ml + 80 g + 6–8 lvs</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Oven 180 °C / 356 °F. Grease a 22 cm round pan.</li>
+  <li>Whisk dry in one bowl, wet in another. Combine. Pour into pan.</li>
+  <li>Bake 28–32 min until skewer clean.</li>
+  <li>Simmer glaze 8 min until syrupy. Discard leaves.</li>
+  <li>Prick hot cake, pour glaze. Soak fully. Serve warm or room temp.</li>
+</ol>
+</div>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Saharan Tuareg</span></div>
+<h3 style="margin-top:0">🍯 Honey-Almond Briouats</h3>
+<p class="why">Bold sugar echoes the triple-poured sugary mint of the Tuareg ceremony.</p>
+<h4>Ingredients — makes 12</h4>
+<table>
+<tbody>
+<tr><td>Warka / phyllo sheets</td><td>6</td></tr>
+<tr><td>Ground almonds</td><td>200 g</td></tr>
+<tr><td>Powdered sugar</td><td>60 g</td></tr>
+<tr><td>Orange-blossom water</td><td>1 tbsp</td></tr>
+<tr><td>Ground cinnamon</td><td>½ tsp</td></tr>
+<tr><td>Butter (brushing)</td><td>80 g</td></tr>
+<tr><td><em>Honey bath:</em> wildflower honey + orange-blossom water</td><td>250 g + 1 tsp</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Mix almonds + powdered sugar + cinnamon + orange-blossom water into a paste.</li>
+  <li>Cut phyllo strips 8 cm wide. Brush butter. Place 1 tsp filling.</li>
+  <li>Fold into triangles. Seal edge with butter.</li>
+  <li>Fry at 170 °C / 338 °F until deep gold, ~2 min.</li>
+  <li>Warm honey + orange-blossom water. Dip fried briouats 10 sec. Drain.</li>
+</ol>
+</div>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Moroccan Rosewater Tisane</span></div>
+<h3 style="margin-top:0">🌹 Rose &amp; Pistachio Shortbread</h3>
+<p class="why">Rose echoes rose. Pistachio gives the green note that mint would otherwise provide.</p>
+<h4>Ingredients — 12 cookies</h4>
+<table>
+<tbody>
+<tr><td>Butter (soft)</td><td>180 g</td></tr>
+<tr><td>Powdered sugar</td><td>80 g</td></tr>
+<tr><td>AP flour</td><td>220 g</td></tr>
+<tr><td>Ground pistachios</td><td>40 g</td></tr>
+<tr><td>Rosewater</td><td>1 tsp</td></tr>
+<tr><td>Dried rose petals</td><td>1 tbsp</td></tr>
+<tr><td>Salt</td><td>¼ tsp</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Cream butter + powdered sugar. Add rosewater, salt.</li>
+  <li>Fold in flour, pistachios, crushed rose petals.</li>
+  <li>Chill 30 min. Roll into log, slice 1 cm rounds.</li>
+  <li>Bake 160 °C / 320 °F for 14 min until pale gold.</li>
+  <li>Dust powdered sugar, scatter rose petals.</li>
+</ol>
+</div>
+
+<!-- EAST ASIA -->
+<h3 id="east-asia">East Asia</h3>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Genmaicha</span></div>
+<h3 style="margin-top:0">🍚 Genmaicha Panna Cotta with Toasted Rice Brittle</h3>
+<p class="why">Panna cotta extracts genmaicha's toasted-rice nuttiness; the brittle crystallizes it.</p>
+<h4>Ingredients — 12 small glasses</h4>
+<table>
+<tbody>
+<tr><td>Heavy cream</td><td>500 ml</td></tr>
+<tr><td>Whole milk</td><td>200 ml</td></tr>
+<tr><td>Caster sugar</td><td>80 g</td></tr>
+<tr><td>Loose-leaf genmaicha</td><td>12 g</td></tr>
+<tr><td>Gelatin sheets</td><td>4</td></tr>
+<tr><td>Vanilla bean</td><td>½</td></tr>
+<tr><td><em>Brittle:</em> toasted rice + sugar + flaky salt</td><td>30 g + 100 g + pinch</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Warm cream + milk + sugar + vanilla to 70 °C. Steep genmaicha 8 min. Strain; reserve rice bits.</li>
+  <li>Bloom gelatin, stir into warm cream to dissolve.</li>
+  <li>Pour into 60 ml glasses. Chill 4 h.</li>
+  <li>Dry-caramelize sugar to amber, stir in toasted rice + salt, pour on parchment. Cool, crack shards.</li>
+  <li>Top each panna cotta with a shard.</li>
+</ol>
+</div>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Alishan High Mountain Oolong</span></div>
+<h3 style="margin-top:0">🍐 Oolong-Poached Pear with Honey-Miso Cream</h3>
+<p class="why">Honeyed floral notes of Alishan marry a perfectly-poached pear.</p>
+<h4>Ingredients — 12 halves</h4>
+<table>
+<tbody>
+<tr><td>Bosc pears (peeled, halved)</td><td>6</td></tr>
+<tr><td>Brewed Alishan oolong (strong)</td><td>750 ml</td></tr>
+<tr><td>Caster sugar</td><td>200 g</td></tr>
+<tr><td>Honey</td><td>3 tbsp</td></tr>
+<tr><td>Lemon zest</td><td>1 strip</td></tr>
+<tr><td><em>Cream:</em> mascarpone + heavy cream + white miso + honey</td><td>200 g + 100 ml + 1 tsp + 2 tbsp</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Simmer oolong + sugar + honey + zest. Poach pears 18–22 min until tender.</li>
+  <li>Cool pears in liquid.</li>
+  <li>Whip cream ingredients to soft peaks.</li>
+  <li>Serve pear half in reduced syrup, crown with dollop of cream.</li>
+</ol>
+</div>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Hojicha</span></div>
+<h3 style="margin-top:0">☕ Hojicha Tiramisu</h3>
+<p class="why">Roasted, toasty hojicha replaces espresso. Darker, warmer, more contemplative.</p>
+<h4>Ingredients — 12 glasses</h4>
+<table>
+<tbody>
+<tr><td>Ladyfingers</td><td>24</td></tr>
+<tr><td>Brewed hojicha (double-strength, cooled)</td><td>250 ml</td></tr>
+<tr><td>Mascarpone</td><td>500 g</td></tr>
+<tr><td>Heavy cream</td><td>250 ml</td></tr>
+<tr><td>Egg yolks</td><td>4</td></tr>
+<tr><td>Caster sugar</td><td>100 g</td></tr>
+<tr><td>Hojicha powder (dusting)</td><td>3 tbsp</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Whisk yolks + sugar over bain-marie to pale ribbon. Cool.</li>
+  <li>Fold in mascarpone. Whip cream to soft peaks, fold in.</li>
+  <li>Dip ladyfingers briefly in hojicha. Layer in glasses.</li>
+  <li>Chill overnight. Dust hojicha powder before serving.</li>
+</ol>
+</div>
+
+<!-- SOUTH AMERICA -->
+<h3 id="south-america">South America</h3>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Argentine Mate</span></div>
+<h3 style="margin-top:0">🥛 Mate Alfajores (Dulce de Leche)</h3>
+<p class="why">Mate in the gourd, alfajor on the plate — the quintessential Argentine pairing.</p>
+<h4>Ingredients — 12 sandwiches</h4>
+<table>
+<tbody>
+<tr><td>Cornstarch</td><td>240 g</td></tr>
+<tr><td>AP flour</td><td>160 g</td></tr>
+<tr><td>Butter</td><td>200 g</td></tr>
+<tr><td>Powdered sugar</td><td>150 g</td></tr>
+<tr><td>Egg yolks</td><td>3</td></tr>
+<tr><td><em>Mate DDL:</em> dulce de leche + yerba mate + cream</td><td>500 g + 8 g + 2 tbsp</td></tr>
+<tr><td>Shredded coconut (finish)</td><td>80 g</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Sift cornstarch + flour. Cream butter + powdered sugar. Add yolks. Fold in flour.</li>
+  <li>Chill 1 h. Roll 5 mm, cut 5 cm rounds. Bake 170 °C / 338 °F for 12 min.</li>
+  <li>Warm cream, steep mate 6 min, strain. Whisk into DDL.</li>
+  <li>Sandwich cookies with DDL. Roll edges in coconut.</li>
+</ol>
+</div>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Chimarrão</span></div>
+<h3 style="margin-top:0">🍫 Chimarrão Brigadeiros</h3>
+<p class="why">Brazilian truffles with vegetal chimarrão cutting the sweetness. Pure Rio Grande do Sul.</p>
+<h4>Ingredients — 24 bites</h4>
+<table>
+<tbody>
+<tr><td>Sweetened condensed milk</td><td>400 g (1 can)</td></tr>
+<tr><td>Butter</td><td>30 g</td></tr>
+<tr><td>Cocoa powder</td><td>30 g</td></tr>
+<tr><td>Finely ground chimarrão</td><td>6 g</td></tr>
+<tr><td>Dark chocolate (70%)</td><td>80 g</td></tr>
+<tr><td>Cacao nibs (coating, crushed)</td><td>60 g</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Cook condensed milk + butter + cocoa + chimarrão over medium-low, stirring, 12–15 min until it pulls from pan.</li>
+  <li>Off heat, stir in chopped dark chocolate to melt.</li>
+  <li>Pour onto buttered plate. Chill 1 h.</li>
+  <li>Roll 15 g balls, coat in cacao nibs.</li>
+</ol>
+</div>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Mate Cocido de Hierbas</span></div>
+<h3 style="margin-top:0">🍮 Lemon Verbena &amp; Chamomile Flan</h3>
+<p class="why">Mirrors the soft herbal verbena &amp; chamomile profile of the infusion.</p>
+<h4>Ingredients — 12 ramekins</h4>
+<table>
+<tbody>
+<tr><td>Whole milk</td><td>500 ml</td></tr>
+<tr><td>Heavy cream</td><td>250 ml</td></tr>
+<tr><td>Dried lemon verbena</td><td>6 g</td></tr>
+<tr><td>Dried chamomile</td><td>4 g</td></tr>
+<tr><td>Caster sugar (custard)</td><td>150 g</td></tr>
+<tr><td>Whole eggs + yolks</td><td>3 + 3</td></tr>
+<tr><td><em>Caramel:</em> sugar + water</td><td>150 g + 2 tbsp</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Caramelize sugar to deep amber. Pour into ramekins.</li>
+  <li>Warm milk + cream to 80 °C. Steep herbs 10 min. Strain.</li>
+  <li>Whisk eggs + yolks + sugar. Temper in cream.</li>
+  <li>Pour into ramekins. Water bath 160 °C / 320 °F for 35–40 min.</li>
+  <li>Chill overnight. Invert to plate.</li>
+</ol>
+</div>
+
+<!-- SOUTH ASIA -->
+<h3 id="south-asia">South Asia</h3>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Masala Chai</span></div>
+<h3 style="margin-top:0">🧂 Masala Chai Shortbread</h3>
+<p class="why">All the spices of the cup, crumbled between your fingers.</p>
+<h4>Ingredients — 16 fingers</h4>
+<table>
+<tbody>
+<tr><td>Butter (soft)</td><td>200 g</td></tr>
+<tr><td>Brown + caster sugar</td><td>80 g + 40 g</td></tr>
+<tr><td>AP flour</td><td>260 g</td></tr>
+<tr><td>Cornstarch</td><td>30 g</td></tr>
+<tr><td>Salt</td><td>½ tsp</td></tr>
+<tr><td>Cardamom · cinnamon · ginger · cloves · pepper</td><td>1 · 1 · ½ · ¼ · ¼ tsp</td></tr>
+<tr><td>Finely ground Assam CTC</td><td>4 g</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Cream butter + both sugars. Add all dry.</li>
+  <li>Press into 20 cm square tin. Score into 16 fingers.</li>
+  <li>Bake 160 °C / 320 °F for 25–30 min.</li>
+  <li>Cut while warm. Dust with extra brown sugar.</li>
+</ol>
+</div>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Darjeeling First Flush</span></div>
+<h3 style="margin-top:0">🍋 Darjeeling Lemon Drizzle Cake</h3>
+<p class="why">The muscatel-citrus notes of first flush amplified by real lemon.</p>
+<h4>Ingredients — 12 slices</h4>
+<table>
+<tbody>
+<tr><td>Butter + sugar</td><td>220 g + 220 g</td></tr>
+<tr><td>Eggs</td><td>4</td></tr>
+<tr><td>AP flour + baking powder</td><td>220 g + 8 g</td></tr>
+<tr><td>Milk</td><td>60 ml</td></tr>
+<tr><td>Ground Darjeeling First Flush</td><td>6 g</td></tr>
+<tr><td>Lemon zest</td><td>2 lemons</td></tr>
+<tr><td><em>Drizzle:</em> lemon juice + sugar + Darjeeling</td><td>80 ml + 80 g + 40 ml</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Oven 170 °C / 338 °F. Line loaf tin.</li>
+  <li>Cream butter + sugar. Eggs one at a time. Fold in flour + baking powder + tea + zest. Add milk.</li>
+  <li>Bake 45–50 min.</li>
+  <li>Warm drizzle to dissolve. Poke cake, pour drizzle. Let soak.</li>
+</ol>
+</div>
+
+<div class="recipe">
+<div class="pair-line">Paired with <span class="tea">Kashmiri Kahwa</span></div>
+<h3 style="margin-top:0">🌾 Saffron-Almond Kheer</h3>
+<p class="why">Same saffron, same almond, same Kashmiri warmth — liquid to pudding.</p>
+<h4>Ingredients — 12 bowls</h4>
+<table>
+<tbody>
+<tr><td>Basmati rice (soaked)</td><td>80 g</td></tr>
+<tr><td>Whole milk</td><td>1.5 L</td></tr>
+<tr><td>Caster sugar</td><td>120 g</td></tr>
+<tr><td>Saffron threads</td><td>20</td></tr>
+<tr><td>Green cardamom pods</td><td>6</td></tr>
+<tr><td>Slivered almonds + pistachios</td><td>80 g + 40 g</td></tr>
+<tr><td>Rosewater</td><td>1 tsp</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Bloom saffron in 2 tbsp warm milk.</li>
+  <li>Simmer rice + milk + cardamom 40–50 min until rice breaks and milk thickens.</li>
+  <li>Add sugar + almonds + saffron milk. Simmer 10 more.</li>
+  <li>Finish with rosewater. Cool. Top with pistachios.</li>
+</ol>
+</div>
+
+<hr>
+
+<!-- FUSIONS -->
+<h2 id="fusions">🔖 By Signature Fusion</h2>
+<p>Treats designed to mirror each original C&amp;C fusion — sharing core ingredients, colors, and stories.</p>
+
+<div class="recipe fusion">
+<div class="pair-line">Paired with <span class="tea">Serengeti Gold</span></div>
+<h3 style="margin-top:0">✦ Rooibos-Poached Figs with Honey Cream</h3>
+<p class="why">Rooibos-mint-rose-cinnamon syrup reborn as a warm poached fruit.</p>
+<table>
+<tbody>
+<tr><td>Dried Mission figs</td><td>24</td></tr>
+<tr><td>Brewed Serengeti Gold (strong)</td><td>500 ml</td></tr>
+<tr><td>Orange-blossom honey</td><td>80 g</td></tr>
+<tr><td>Cinnamon stick</td><td>1</td></tr>
+<tr><td><em>Honey cream:</em> heavy cream + mascarpone + honey</td><td>250 ml + 100 g + 2 tbsp</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Simmer figs in tea + honey + cinnamon 20 min. Cool in liquid.</li>
+  <li>Reduce poaching liquid by half for glaze.</li>
+  <li>Whip cream + mascarpone + honey to soft peaks.</li>
+  <li>Serve 2 figs per guest in glaze, crowned with cream. Scatter pistachios.</li>
+</ol>
+</div>
+
+<div class="recipe fusion">
+<div class="pair-line">Paired with <span class="tea">Silk Route</span></div>
+<h3 style="margin-top:0">✦ Saffron-Rose White-Chocolate Trifle</h3>
+<p class="why">Saffron, rose, cardamom — the fusion's DNA, layered into jewel-toned glass.</p>
+<table>
+<tbody>
+<tr><td>Sponge cake (plain, cubed)</td><td>400 g</td></tr>
+<tr><td>Brewed Silk Route (sweetened)</td><td>200 ml</td></tr>
+<tr><td><em>Saffron custard:</em> milk + sugar + yolks + cornstarch + saffron + white chocolate + cardamom</td><td>500 + 100 + 5 + 40 + 15 thr + 80 + ½ tsp</td></tr>
+<tr><td><em>Rose cream:</em> cream + powdered sugar + rosewater</td><td>300 + 40 + 1 tsp</td></tr>
+<tr><td>Rose petals + pistachios (garnish)</td><td>—</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Custard: whisk yolks + sugar + cornstarch. Warm milk with saffron, pour into yolks. Thicken. Stir in white chocolate + cardamom. Chill.</li>
+  <li>Whip cream + sugar + rosewater to soft peaks.</li>
+  <li>Layer: soaked sponge → custard → rose cream. Repeat.</li>
+  <li>Garnish, chill 2 h.</li>
+</ol>
+</div>
+
+<div class="recipe fusion">
+<div class="pair-line">Paired with <span class="tea">Obsidian Mate</span></div>
+<h3 style="margin-top:0">✦ Cacao-Mate Brownie with Flaky Salt</h3>
+<p class="why">Yerba mate + hojicha + cacao nibs = the brownie hiding in the fusion.</p>
+<table>
+<tbody>
+<tr><td>Dark chocolate (70%)</td><td>250 g</td></tr>
+<tr><td>Butter</td><td>200 g</td></tr>
+<tr><td>Caster + brown sugar</td><td>200 g + 100 g</td></tr>
+<tr><td>Eggs</td><td>4</td></tr>
+<tr><td>AP flour + cocoa powder</td><td>120 g + 30 g</td></tr>
+<tr><td>Ground Obsidian Mate blend</td><td>8 g</td></tr>
+<tr><td>Cacao nibs (top)</td><td>60 g</td></tr>
+<tr><td>Maldon salt (finish)</td><td>—</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Melt chocolate + butter. Off heat, whisk in sugars.</li>
+  <li>Eggs one at a time. Fold in flour + cocoa + ground Obsidian Mate.</li>
+  <li>22 cm square tin. Scatter cacao nibs.</li>
+  <li>Bake 170 °C / 338 °F for 25–28 min. Fudgy center.</li>
+  <li>Finish warm with flaky salt.</li>
+</ol>
+</div>
+
+<div class="recipe fusion">
+<div class="pair-line">Paired with <span class="tea">Monsoon Bloom</span></div>
+<h3 style="margin-top:0">✦ Jasmine-Cardamom Rice Pudding</h3>
+<p class="why">Alishan + cardamom + jasmine translates to a South-Asian-meets-Taiwanese kheer.</p>
+<table>
+<tbody>
+<tr><td>Arborio rice</td><td>120 g</td></tr>
+<tr><td>Whole milk + coconut milk</td><td>750 ml + 250 ml</td></tr>
+<tr><td>Caster sugar</td><td>100 g</td></tr>
+<tr><td>Green cardamom (crushed)</td><td>8 pods</td></tr>
+<tr><td>Dried jasmine + ginger slivers</td><td>3 g + 4 g</td></tr>
+<tr><td>Fresh jasmine + toasted almonds (garnish)</td><td>—</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Warm both milks with cardamom, jasmine, ginger. Steep 10 min. Strain.</li>
+  <li>Simmer infused milk with rice, stirring, 35–40 min until creamy.</li>
+  <li>Stir in sugar.</li>
+  <li>Serve warm, top with jasmine + toasted almonds.</li>
+</ol>
+</div>
+
+<div class="recipe fusion">
+<div class="pair-line">Paired with <span class="tea">Sahara Sunset</span></div>
+<h3 style="margin-top:0">✦ Hibiscus-Rose Sorbet</h3>
+<p class="why">Tart, crimson, cooling — reborn as a bright palate cleanser.</p>
+<table>
+<tbody>
+<tr><td>Water</td><td>400 ml</td></tr>
+<tr><td>Caster sugar + glucose/honey</td><td>250 g + 60 g</td></tr>
+<tr><td>Brewed Sahara Sunset (triple-strength)</td><td>600 ml</td></tr>
+<tr><td>Rosewater</td><td>1 tsp</td></tr>
+<tr><td>Lemon juice</td><td>30 ml</td></tr>
+<tr><td>Rose petals + mint (garnish)</td><td>—</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Simmer water + sugar + glucose. Cool.</li>
+  <li>Combine with strong Sahara Sunset + rosewater + lemon.</li>
+  <li>Churn 25 min. Freeze 4 h minimum.</li>
+  <li>Scoop, top with rose petals + mint.</li>
+</ol>
+</div>
+
+<div class="recipe fusion">
+<div class="pair-line">Paired with <span class="tea">Andes Awakening</span></div>
+<h3 style="margin-top:0">✦ Cacao-Chimarrão Truffles</h3>
+<p class="why">Chimarrão + cacao + cinnamon, concentrated into a single pop-in-mouth bite.</p>
+<table>
+<tbody>
+<tr><td>Heavy cream</td><td>250 ml</td></tr>
+<tr><td>Dark (70%) + milk chocolate</td><td>300 g + 80 g</td></tr>
+<tr><td>Butter</td><td>30 g</td></tr>
+<tr><td>Ground chimarrão + Ceylon cinnamon</td><td>8 g + 1 tsp</td></tr>
+<tr><td>Flaky salt</td><td>pinch</td></tr>
+<tr><td>Coatings: cocoa · cacao nibs · cinnamon-sugar</td><td>60 g each</td></tr>
+</tbody>
+</table>
+<h4>Method</h4>
+<ol>
+  <li>Warm cream + chimarrão + cinnamon. Steep 6 min. Strain.</li>
+  <li>Reheat cream to steaming, pour over chopped chocolates. Stand 2 min, stir smooth.</li>
+  <li>Stir in butter + salt. Chill 4 h.</li>
+  <li>Scoop 12 g balls. Roll in chosen coatings.</li>
+</ol>
+</div>
+
+<hr>
+
+<!-- TECHNIQUES -->
+<h2 id="techniques">🔧 Universal Techniques</h2>
+
+<h3>Infusing into Dairy</h3>
+<table>
+<thead><tr><th>Tea Type</th><th>Cream Temp</th><th>Steep</th><th style="text-align:left">Notes</th></tr></thead>
+<tbody>
+<tr><td>Black (chai, Darjeeling)</td><td>85 °C</td><td>6–8 min</td><td style="text-align:left">Survives sugar</td></tr>
+<tr><td>Green (genmaicha, sencha)</td><td>70 °C</td><td>4–5 min</td><td style="text-align:left">Longer → bitter</td></tr>
+<tr><td>Oolong (Alishan)</td><td>80 °C</td><td>6 min</td><td style="text-align:left">Unlocks floral</td></tr>
+<tr><td>Hojicha / roasted</td><td>85 °C</td><td>5–7 min</td><td style="text-align:left">Very forgiving</td></tr>
+<tr><td>Mate / chimarrão</td><td>75 °C</td><td>5 min</td><td style="text-align:left">Never boil</td></tr>
+<tr><td>Herbal (rooibos, hibiscus)</td><td>90 °C</td><td>8–10 min</td><td style="text-align:left">Need heat &amp; time</td></tr>
+</tbody>
+</table>
+
+<h3>Other Methods</h3>
+<ul>
+  <li><strong>Syrup</strong> — 1 g tea per 100 ml water + 100 g sugar. Simmer, steep 8 min off-heat, strain.</li>
+  <li><strong>Tea flour</strong> — grind loose leaf 30 sec, sift 60-mesh. Use 2–4 % of flour weight for subtle, 6–8 % for assertive.</li>
+  <li><strong>Tea butter</strong> — soften 200 g butter, fold in 4 g ground tea + 1 tbsp honey. Roll, chill.</li>
+</ul>
+
+<hr>
+
+<!-- PAIRING MATRIX -->
+<h2 id="matrix">📊 Event Pairing Matrix</h2>
+<table>
+<thead><tr><th>Event Theme</th><th style="text-align:left">Teas</th><th style="text-align:left">Treats</th></tr></thead>
+<tbody>
+<tr><td>Inaugural 3-Course</td><td style="text-align:left">Masala Chai → Moroccan Mint → Rosewater</td><td style="text-align:left">Chai Shortbread → Meskouta → Rose-Pistachio Shortbread</td></tr>
+<tr><td>Silk Road Journey</td><td style="text-align:left">Silk Route → Kahwa → Monsoon Bloom</td><td style="text-align:left">Saffron-Rose Trifle → Saffron Kheer → Jasmine Rice Pudding</td></tr>
+<tr><td>South American Night</td><td style="text-align:left">Argentine Mate → Chimarrão → Andes Awakening</td><td style="text-align:left">Alfajores → Brigadeiros → Cacao-Chimarrão Truffles</td></tr>
+<tr><td>North African Mezze</td><td style="text-align:left">Moroccan Mint → Tuareg → Rosewater</td><td style="text-align:left">Meskouta → Briouats → Rose-Pistachio Shortbread</td></tr>
+<tr><td>East Asian Hearth</td><td style="text-align:left">Genmaicha → Alishan → Hojicha</td><td style="text-align:left">Panna Cotta → Poached Pear → Hojicha Tiramisu</td></tr>
+<tr><td>Fusion Flight (Flagship)</td><td style="text-align:left">All 6 fusions</td><td style="text-align:left">All 6 paired fusion treats</td></tr>
+<tr><td>Cooling Summer Pop-up</td><td style="text-align:left">Sahara Sunset (iced)</td><td style="text-align:left">Hibiscus-Rose Sorbet</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<!-- ALLERGENS -->
+<h2 id="allergens">⚠️ Allergen &amp; Dietary Notes</h2>
+<table>
+<thead><tr><th style="text-align:left">Treat</th><th style="text-align:left">Contains</th><th style="text-align:left">Notes</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left">Meskouta</td><td style="text-align:left">Gluten, egg, dairy</td><td style="text-align:left">—</td></tr>
+<tr><td style="text-align:left">Honey-Almond Briouats</td><td style="text-align:left">Gluten, nuts, dairy</td><td style="text-align:left">Not vegan</td></tr>
+<tr><td style="text-align:left">Rose-Pistachio Shortbread</td><td style="text-align:left">Gluten, nuts, dairy</td><td style="text-align:left">—</td></tr>
+<tr><td style="text-align:left">Genmaicha Panna Cotta</td><td style="text-align:left">Dairy, gelatin</td><td style="text-align:left">Not vegan</td></tr>
+<tr><td style="text-align:left">Oolong-Poached Pear</td><td style="text-align:left">Dairy</td><td style="text-align:left"><strong>GF</strong></td></tr>
+<tr><td style="text-align:left">Hojicha Tiramisu</td><td style="text-align:left">Gluten, dairy, raw egg</td><td style="text-align:left">—</td></tr>
+<tr><td style="text-align:left">Mate Alfajores</td><td style="text-align:left">Gluten, dairy, egg</td><td style="text-align:left">—</td></tr>
+<tr><td style="text-align:left">Chimarrão Brigadeiros</td><td style="text-align:left">Dairy</td><td style="text-align:left"><strong>GF</strong></td></tr>
+<tr><td style="text-align:left">Lemon Verbena Flan</td><td style="text-align:left">Dairy, egg</td><td style="text-align:left"><strong>GF</strong></td></tr>
+<tr><td style="text-align:left">Masala Chai Shortbread</td><td style="text-align:left">Gluten, dairy</td><td style="text-align:left">—</td></tr>
+<tr><td style="text-align:left">Darjeeling Lemon Cake</td><td style="text-align:left">Gluten, dairy, egg</td><td style="text-align:left">—</td></tr>
+<tr><td style="text-align:left">Saffron-Almond Kheer</td><td style="text-align:left">Dairy, nuts</td><td style="text-align:left"><strong>GF</strong></td></tr>
+<tr><td style="text-align:left">Serengeti Figs</td><td style="text-align:left">Dairy, nuts</td><td style="text-align:left"><strong>GF</strong></td></tr>
+<tr><td style="text-align:left">Silk Route Trifle</td><td style="text-align:left">Gluten, dairy, egg, nuts</td><td style="text-align:left">—</td></tr>
+<tr><td style="text-align:left">Cacao-Mate Brownie</td><td style="text-align:left">Gluten, dairy, egg</td><td style="text-align:left">—</td></tr>
+<tr><td style="text-align:left">Jasmine Rice Pudding</td><td style="text-align:left">Dairy, nuts</td><td style="text-align:left"><strong>GF</strong></td></tr>
+<tr><td style="text-align:left">Hibiscus-Rose Sorbet</td><td style="text-align:left">—</td><td style="text-align:left"><strong>Vegan / GF</strong></td></tr>
+<tr><td style="text-align:left">Cacao-Chimarrão Truffles</td><td style="text-align:left">Dairy</td><td style="text-align:left"><strong>GF</strong></td></tr>
+</tbody>
+</table>
+
+<div class="callout">
+  <strong>Always disclose</strong> tea + caffeine content when plating. Mate/chimarrão-based treats contain caffeine; rooibos/hibiscus/verbena-based are caffeine-free.
+</div>
+
+<div class="footer-brand">
+  Cups &amp; Cultures — Tea. Culture. Connection. Every sip has a plate.<br>
+  <span style="font-size:10pt; font-style:normal;">info@cupsandcultures.co · <a href="https://instagram.com/cupsandcultures.co" style="color:var(--ochre); border:none">@cupsandcultures.co</a></span>
+</div>
+
+</div>
+
+<script>
+  function openGoogleDocs() {
+    window.open('https://docs.google.com/document/create', '_blank');
+    setTimeout(() => {
+      alert(
+        "Google Docs is now open.\n\n" +
+        "Import the Markdown:\n" +
+        "  1. In Docs, click File → Open → Upload\n" +
+        "  2. Select the tea-infused-treats.md file (download from the toolbar)\n\n" +
+        "Or paste formatted from this page (Ctrl/Cmd+A, copy, paste)."
+      );
+    }, 500);
+  }
+</script>
+
+</body>
+</html>
