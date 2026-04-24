@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { Music, BookOpen, Flame, Clock, Thermometer, ChevronDown, ArrowUpRight } from 'lucide-react'
+import { Music, BookOpen, Flame, Clock, Thermometer, ChevronDown, Sparkles, Leaf } from 'lucide-react'
 import FlavorProfile from './FlavorProfile'
-import TeaDetailModal from './TeaDetailModal'
 
 export default function MenuCard({ tea }) {
   const [isExpanded, setIsExpanded] = useState(false)
-  const [showModal, setShowModal] = useState(false)
 
   return (
     <div
@@ -15,6 +13,17 @@ export default function MenuCard({ tea }) {
           : 'border-espresso-100/15 hover:border-espresso-200/30 hover:shadow-lg hover:shadow-espresso-900/5'
       }`}
     >
+      {/* Signature ribbon */}
+      {tea.signature && (
+        <div className="bg-gradient-to-r from-ochre-400/90 via-terracotta-500/90 to-ochre-400/90 px-6 py-1.5 flex items-center justify-center gap-2">
+          <Sparkles size={11} className="text-cream-50" />
+          <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.25em] text-cream-50">
+            C&C Signature Fusion
+          </p>
+          <Sparkles size={11} className="text-cream-50" />
+        </div>
+      )}
+
       {/* Header — minimal, typography-focused */}
       <div className="px-6 pt-6 pb-4">
         <div className="flex items-center justify-between mb-2">
@@ -37,6 +46,11 @@ export default function MenuCard({ tea }) {
         <p className="text-espresso-600/50 text-sm italic">
           {tea.type}
         </p>
+        {tea.fusionStory && (
+          <p className="mt-3 text-espresso-700/70 text-sm leading-relaxed border-l-2 border-ochre-400/40 pl-3">
+            {tea.fusionStory}
+          </p>
+        )}
       </div>
 
       <div className="px-6 pb-2">
@@ -78,10 +92,30 @@ export default function MenuCard({ tea }) {
         {/* Expanded cultural pairings */}
         <div
           className={`overflow-hidden transition-all duration-700 ease-in-out ${
-            isExpanded ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0'
+            isExpanded ? 'max-h-[800px] opacity-100 mt-6' : 'max-h-0 opacity-0'
           }`}
         >
           <div className="space-y-5">
+            {/* Wellness (fusions only) */}
+            {tea.wellness && tea.wellness.length > 0 && (
+              <div className="flex gap-3">
+                <Leaf size={16} className="text-teal-600 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.15em] font-semibold text-espresso-800 mb-2">
+                    Wellness
+                  </p>
+                  <ul className="space-y-1">
+                    {tea.wellness.map((benefit, idx) => (
+                      <li key={idx} className="text-espresso-700/60 text-sm leading-relaxed flex gap-2">
+                        <span className="text-teal-600/60">·</span>
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+
             {/* Ceremony */}
             <div className="flex gap-3">
               <Flame size={16} className="text-terracotta-500 mt-0.5 shrink-0" />
@@ -121,24 +155,8 @@ export default function MenuCard({ tea }) {
               </div>
             </div>
           </div>
-
-          {/* View Full Detail button */}
-          <button
-            onClick={() => setShowModal(true)}
-            className="mt-6 w-full flex items-center justify-center gap-2 py-3 border border-ochre-400/20 rounded-sm text-ochre-500 hover:bg-ochre-400 hover:text-espresso-900 transition-all duration-700"
-          >
-            <span className="text-xs uppercase tracking-[0.2em] font-medium">
-              View Full Detail
-            </span>
-            <ArrowUpRight size={14} />
-          </button>
         </div>
       </div>
-
-      {/* Tea Detail Modal */}
-      {showModal && (
-        <TeaDetailModal tea={tea} onClose={() => setShowModal(false)} />
-      )}
     </div>
   )
 }

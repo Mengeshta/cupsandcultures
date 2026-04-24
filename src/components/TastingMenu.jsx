@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { Sparkles } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 import MenuCard from './MenuCard'
+import FlavorGlossary from './FlavorGlossary'
 import tastingData from '../data/TastingMenu.json'
 
 export default function TastingMenu() {
@@ -61,21 +63,33 @@ export default function TastingMenu() {
         </div>
 
         {/* Region Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
-          {tastingData.regions.map((region) => (
-            <button
-              key={region.id}
-              onClick={() => setActiveRegion(region.id)}
-              className={`px-6 py-3 text-xs uppercase tracking-[0.15em] font-medium rounded-sm transition-all duration-500 ${
-                activeRegion === region.id
-                  ? 'bg-terracotta-500 text-cream-50 shadow-lg shadow-terracotta-500/20'
-                  : 'border border-cream-50/20 text-cream-50/60 hover:border-ochre-400/50 hover:text-ochre-400'
-              }`}
-            >
-              {region.name}
-            </button>
-          ))}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {tastingData.regions.map((region) => {
+            const isActive = activeRegion === region.id
+            const isSignature = region.signature
+            return (
+              <button
+                key={region.id}
+                onClick={() => setActiveRegion(region.id)}
+                className={`px-6 py-3 text-xs uppercase tracking-[0.15em] font-medium rounded-sm transition-all duration-500 flex items-center gap-2 ${
+                  isActive
+                    ? isSignature
+                      ? 'bg-gradient-to-r from-ochre-400 to-terracotta-500 text-cream-50 shadow-lg shadow-ochre-400/30'
+                      : 'bg-terracotta-500 text-cream-50 shadow-lg shadow-terracotta-500/20'
+                    : isSignature
+                      ? 'border border-ochre-400/40 text-ochre-400 hover:border-ochre-400 hover:bg-ochre-400/10'
+                      : 'border border-cream-50/20 text-cream-50/60 hover:border-ochre-400/50 hover:text-ochre-400'
+                }`}
+              >
+                {isSignature && <Sparkles size={12} />}
+                {region.name}
+              </button>
+            )
+          })}
         </div>
+
+        {/* Flavor chart glossary */}
+        <FlavorGlossary />
 
         {/* Region description */}
         <div
