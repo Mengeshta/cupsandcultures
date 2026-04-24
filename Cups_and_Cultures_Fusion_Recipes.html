@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cups &amp; Cultures — Signature Fusion Recipes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #A0522D;
+    --ochre: #DAA520;
+    --espresso: #3D2B1F;
+    --cream: #FDF5E6;
+    --teal: #35817b;
+    --paper: #FAF3E3;
+  }
+
+  @page { margin: 0.75in; size: letter; }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.65;
+    color: var(--espresso);
+    background: var(--paper);
+    margin: 0;
+    padding: 0;
+    font-size: 10.5pt;
+  }
+
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--espresso);
+    color: var(--cream);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .toolbar .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .toolbar .brand span { color: var(--ochre); }
+  .toolbar .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .toolbar button,
+  .toolbar a.btn {
+    background: transparent;
+    border: 1px solid rgba(253,245,230,0.25);
+    color: var(--cream);
+    padding: 8px 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .toolbar button:hover,
+  .toolbar a.btn:hover {
+    background: var(--ochre);
+    color: var(--espresso);
+    border-color: var(--ochre);
+  }
+  .toolbar .primary {
+    background: var(--ochre);
+    color: var(--espresso);
+    border-color: var(--ochre);
+  }
+  .toolbar .primary:hover {
+    background: var(--cream);
+    border-color: var(--cream);
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--espresso);
+    font-size: 42px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 8px;
+    line-height: 1.1;
+  }
+  h1 .accent { color: var(--terracotta); font-style: italic; }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--terracotta);
+    font-size: 26px;
+    font-weight: 600;
+    margin: 48px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ochre);
+  }
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--espresso);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 32px 0 8px;
+  }
+  h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--terracotta);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 20px 0 8px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: rgba(61,43,31,0.65);
+    margin: 0 0 40px;
+  }
+
+  .fusion-story {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: rgba(61,43,31,0.75);
+    border-left: 3px solid var(--ochre);
+    padding: 8px 16px;
+    margin: 12px 0 20px;
+    background: rgba(218,165,32,0.06);
+  }
+
+  .pill-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0 16px;
+  }
+  .pill {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .pill-caf { background: rgba(160,82,45,0.12); color: var(--terracotta); }
+  .pill-nocaf { background: rgba(53,129,123,0.12); color: var(--teal); }
+  .pill-profile { background: rgba(218,165,32,0.15); color: #8a6410; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 10pt;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  th {
+    background: var(--espresso);
+    color: var(--cream);
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  td {
+    border-bottom: 1px solid rgba(61,43,31,0.1);
+    padding: 10px 12px;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(250,243,227,0.5); }
+  td .num { text-align: right; }
+
+  a {
+    color: var(--terracotta);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(160,82,45,0.4);
+    transition: all 0.2s ease;
+    word-break: break-word;
+  }
+  a:hover { color: var(--ochre); border-bottom-color: var(--ochre); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 4px; }
+
+  blockquote {
+    margin: 16px 0;
+    padding: 12px 20px;
+    background: rgba(218,165,32,0.08);
+    border-left: 3px solid var(--ochre);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(61,43,31,0.85);
+  }
+
+  .callout {
+    margin: 16px 0;
+    padding: 12px 16px;
+    background: rgba(160,82,45,0.08);
+    border-left: 3px solid var(--terracotta);
+    border-radius: 2px;
+    font-size: 10pt;
+  }
+
+  .brew-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0 24px;
+  }
+  .brew-card {
+    background: #fff;
+    border: 1px solid rgba(61,43,31,0.1);
+    border-radius: 2px;
+    padding: 12px 14px;
+  }
+  .brew-card .label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .brew-card .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--espresso);
+  }
+
+  .fusion-section {
+    border: 1px solid rgba(61,43,31,0.08);
+    background: #fff;
+    padding: 28px 32px;
+    margin: 32px 0;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    position: relative;
+  }
+  .fusion-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--ochre), var(--terracotta), var(--ochre));
+    border-radius: 3px 3px 0 0;
+  }
+  .fusion-section .fusion-number {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ochre);
+    margin-right: 8px;
+  }
+
+  .shop-list {
+    background: rgba(250,243,227,0.8);
+    border: 1px solid rgba(61,43,31,0.1);
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 16px 0;
+  }
+  .shop-list ul { margin: 8px 0 0; }
+
+  .ribbon {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--ochre), var(--terracotta));
+    color: var(--cream);
+    padding: 4px 14px;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  .toc {
+    background: rgba(61,43,31,0.04);
+    border-left: 3px solid var(--ochre);
+    padding: 20px 24px;
+    margin: 24px 0 40px;
+  }
+  .toc ol { margin: 8px 0 0; padding-left: 20px; }
+  .toc li { margin-bottom: 6px; font-size: 10.5pt; }
+  .toc li ul { margin: 4px 0 0; padding-left: 16px; }
+  .toc li ul li { list-style: none; font-size: 10pt; color: rgba(61,43,31,0.7); }
+  .toc li ul li::before { content: '·  '; color: var(--terracotta); }
+
+  hr {
+    border: none;
+    border-top: 1px solid rgba(61,43,31,0.12);
+    margin: 40px 0;
+  }
+
+  .footer-brand {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 2px solid var(--ochre);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(61,43,31,0.6);
+  }
+
+  @media print {
+    .toolbar { display: none; }
+    body { background: #fff; }
+    .fusion-section { break-inside: avoid; }
+    a { color: var(--espresso); border-bottom: none; }
+    a::after { content: ' [' attr(href) ']'; font-size: 8pt; color: #888; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="brand">Cups <span>&amp;</span> Cultures — Fusion Recipes</div>
+  <div class="actions">
+    <button onclick="window.print()">Print / Save PDF</button>
+    <a class="btn" href="Cups_and_Cultures_Fusion_Recipes.md" download>Download .md</a>
+    <button class="primary" onclick="exportToGoogleDocs()">Open Google Docs</button>
+  </div>
+</div>
+
+<div class="container">
+
+<h1>Signature <span class="accent">Fusion</span> Recipes</h1>
+<p class="subtitle">Tea. Culture. Connection. — Six original blends from across continents.</p>
+
+<div class="toc">
+  <h4 style="margin-top:0">Table of Contents</h4>
+  <ol>
+    <li><a href="#pantry">Master Pantry — Raw Materials</a></li>
+    <li><a href="#fusions">The Six Signature Fusions</a>
+      <ul>
+        <li><a href="#serengeti-gold">Serengeti Gold</a></li>
+        <li><a href="#silk-route">Silk Route</a></li>
+        <li><a href="#obsidian-mate">Obsidian Mate</a></li>
+        <li><a href="#monsoon-bloom">Monsoon Bloom</a></li>
+        <li><a href="#sahara-sunset">Sahara Sunset</a></li>
+        <li><a href="#andes-awakening">Andes Awakening</a></li>
+      </ul>
+    </li>
+    <li><a href="#serveware">Signature Branded Serveware</a></li>
+    <li><a href="#scaling">Event Scaling &amp; Batch Math</a></li>
+    <li><a href="#checklist">Shopping Checklist</a></li>
+    <li><a href="#tips">Storage, Shelf Life &amp; Pro Tips</a></li>
+  </ol>
+</div>
+
+<div class="callout">
+  <strong>How to use:</strong> Recipes are given in <strong>parts by weight</strong> (grams) for accurate scaling. Standard brewing ratio is <strong>2.5 g of blend per 8 oz cup</strong>. A digital scale with 0.1 g resolution is essential.
+</div>
+
+<!-- PANTRY -->
+<h2 id="pantry">🏛️ Master Pantry — Raw Materials</h2>
+<p>Stock these once. You'll use them across multiple fusions.</p>
+
+<h3>Base Teas</h3>
+<table>
+<thead><tr><th>Ingredient</th><th>Vendor</th><th>Amazon Link</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Rooibos (organic)</td><td>Anthony's</td><td><a href="https://www.amazon.com/Anthonys-Organic-Rooibos-Loose-Gluten/dp/B07S2FCSX4">Anthony's Organic Rooibos</a></td><td>~$17 / 1 lb</td></tr>
+<tr><td>Darjeeling First Flush</td><td>Vahdam</td><td><a href="https://www.amazon.com/VAHDAM-Darjeeling-Premium-LOOSE-Muscatel/dp/B01N29XAB9">Vahdam Darjeeling</a></td><td>~$20 / 12 oz</td></tr>
+<tr><td>Assam CTC Black</td><td>Vahdam</td><td><a href="https://www.amazon.com/VAHDAM-Assam-Black-STRONG-EVERYDAY/dp/B00M59AHAC">Vahdam Assam CTC</a></td><td>~$12 / 12 oz</td></tr>
+<tr><td>Alishan High Mountain Oolong</td><td>FullChea</td><td><a href="https://www.amazon.com/FullChea-Natural-Alishan-Mountain-Taiwanese/dp/B0855YZGTW">FullChea Alishan</a></td><td>~$24 / 4 oz</td></tr>
+<tr><td>Hojicha (roasted green)</td><td>Ocha &amp; Co.</td><td><a href="https://www.amazon.com/Ocha-Roasted-Japanese-Houjicha-Houjitya/dp/B07V5DGDPZ">Ocha &amp; Co. Hojicha</a></td><td>~$14 / 100 g</td></tr>
+<tr><td>Argentine Yerba Mate</td><td>Cruz de Malta</td><td><a href="https://www.amazon.com/Cruz-Malta-Yerba-Mate-Tea/dp/B00E3UI0SC">Cruz de Malta</a></td><td>~$10 / 1 lb</td></tr>
+<tr><td>Brazilian Chimarrão</td><td>Portão</td><td><a href="https://www.amazon.com/Chimarr%C3%A3o-Port%C3%A3o-Brazilian-Traditional-35-27oz/dp/B09RQVTK8H">Portão Chimarrão</a></td><td>~$22 / 2 lb</td></tr>
+</tbody>
+</table>
+
+<h3>Dried Flowers &amp; Herbs</h3>
+<table>
+<thead><tr><th>Ingredient</th><th>Vendor</th><th>Amazon Link</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Rose petals (culinary)</td><td>Anthony's</td><td><a href="https://www.amazon.com/Anthonys-Organic-Petals-Culinary-Gluten/dp/B07Q8N6QRR">Rose Petals</a></td><td>~$14 / 4 oz</td></tr>
+<tr><td>Hibiscus flowers</td><td>Frontier Co-op</td><td><a href="https://www.amazon.com/Frontier-Co-op-Hibiscus-Flowers-Cut/dp/B000WR4LKE">Frontier Hibiscus</a></td><td>~$10 / 1 lb</td></tr>
+<tr><td>Spearmint (dried)</td><td>Anthony's</td><td><a href="https://www.amazon.com/Anthonys-Organic-Spearmint-Leaves-Verified/dp/B07NRJQD2N">Anthony's Spearmint</a></td><td>~$12 / 1 lb</td></tr>
+<tr><td>Jasmine flowers</td><td>Tealyra</td><td><a href="https://www.amazon.com/Tealyra-Jasmine-Flower-Buds-Scenting/dp/B00VDC5P7U">Jasmine Buds</a></td><td>~$15 / 4 oz</td></tr>
+<tr><td>Chamomile flowers</td><td>Starwest Botanicals</td><td><a href="https://www.amazon.com/Starwest-Botanicals-Organic-Chamomile-Flowers/dp/B003AYEHLU">Organic Chamomile</a></td><td>~$16 / 1 lb</td></tr>
+</tbody>
+</table>
+
+<h3>Spices (Whole)</h3>
+<table>
+<thead><tr><th>Ingredient</th><th>Vendor</th><th>Amazon Link</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Green cardamom pods</td><td>Spicy World</td><td><a href="https://www.amazon.com/Spicy-World-Green-Cardamom-Pods/dp/B002TLSXGC">Green Cardamom</a></td><td>~$12 / 7 oz</td></tr>
+<tr><td>Ceylon cinnamon sticks</td><td>365 by Whole Foods</td><td><a href="https://www.amazon.com/365-Everyday-Value-Cinnamon-Sticks/dp/B07VXDSV47">Ceylon Cinnamon</a></td><td>~$8 / 4 oz</td></tr>
+<tr><td>Whole cloves</td><td>McCormick Gourmet</td><td><a href="https://www.amazon.com/McCormick-Gourmet-Organic-Cloves-Whole/dp/B0035F9MXG">Organic Cloves</a></td><td>~$7</td></tr>
+<tr><td>Saffron threads (Spanish)</td><td>Golchin</td><td><a href="https://www.amazon.com/Golchin-Saffron-Persian-Authentic-Pongal/dp/B07YTPJQG5">Persian Saffron</a></td><td>~$25 / 1 g</td></tr>
+</tbody>
+</table>
+
+<h3>Sweeteners &amp; Finishing</h3>
+<table>
+<thead><tr><th>Ingredient</th><th>Vendor</th><th>Amazon Link</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Cacao nibs (raw, organic)</td><td>Navitas</td><td><a href="https://www.amazon.com/Navitas-Organics-Cacao-Nibs-Ounce/dp/B004UL8LUO">Navitas Cacao Nibs</a></td><td>~$14 / 16 oz</td></tr>
+<tr><td>Orange-blossom honey</td><td>Savannah Bee Co.</td><td><a href="https://www.amazon.com/Savannah-Bee-Company-Orange-Blossom/dp/B001DYLKT4">Orange Blossom Honey</a></td><td>~$16</td></tr>
+<tr><td>Rosewater (food-grade)</td><td>Cortas</td><td><a href="https://www.amazon.com/Cortas-Rose-Water-10-Ounce/dp/B000SE2J0W">Cortas Rosewater</a></td><td>~$7</td></tr>
+<tr><td>Orange-blossom water</td><td>Cortas</td><td><a href="https://www.amazon.com/Cortas-Orange-Blossom-Water-10-Ounce/dp/B000SE26ZG">Orange Blossom Water</a></td><td>~$7</td></tr>
+</tbody>
+</table>
+
+<h3>Essential Equipment</h3>
+<table>
+<thead><tr><th>Item</th><th>Amazon Link</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Digital kitchen scale (0.1 g)</td><td><a href="https://www.amazon.com/Greater-Goods-Nourish-Kitchen-Certified/dp/B082T4SHLZ">Greater Goods Scale</a></td><td>~$20</td></tr>
+<tr><td>Empty loose-leaf filter bags</td><td><a href="https://www.amazon.com/Finum-Unbleached-Disposable-Filter-Medium/dp/B000EH1G3O">Finum Filter Bags</a></td><td>~$10 / 100</td></tr>
+<tr><td>Glass storage jars (12 pk)</td><td><a href="https://www.amazon.com/Mason-Canning-Regular-2-Pack-Clear/dp/B07BJXV7FW">Mason Jars</a></td><td>~$18</td></tr>
+<tr><td>Kraft labels</td><td><a href="https://www.amazon.com/Avery-Removable-Labels-Handwrite-Only-22801/dp/B000BPIJGW">Avery Labels</a></td><td>~$7</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<!-- FUSIONS -->
+<h2 id="fusions">🔖 The Six Signature Fusions</h2>
+
+<!-- SERENGETI GOLD -->
+<div class="fusion-section" id="serengeti-gold">
+<div class="ribbon">✦ C&amp;C Signature Fusion</div>
+<h3><span class="fusion-number">I.</span>Serengeti Gold</h3>
+<p class="fusion-story">Southern Africa × Maghreb — Where the red sands of the Kalahari meet the high Atlas. Earthy rooibos softened by Maghrebi mint and a whisper of orange-blossom honey.</p>
+<div class="pill-row">
+  <span class="pill pill-nocaf">Caffeine-free</span>
+  <span class="pill pill-profile">Earthy · Sweet · Mint · Light body</span>
+</div>
+
+<h4>Recipe — 1 tin · ~75 g · ~30 cups</h4>
+<table>
+<thead><tr><th>Ingredient</th><th>Grams</th><th>Parts</th><th>Teaspoons</th></tr></thead>
+<tbody>
+<tr><td>Organic rooibos</td><td>45 g</td><td>6</td><td>~18 tsp</td></tr>
+<tr><td>Dried spearmint</td><td>15 g</td><td>2</td><td>~10 tsp</td></tr>
+<tr><td>Dried rose petals</td><td>8 g</td><td>1</td><td>~4 tsp</td></tr>
+<tr><td>Cinnamon chips</td><td>4 g</td><td>½</td><td>~2 tsp</td></tr>
+<tr><td>Orange-blossom honey (drizzle in-cup)</td><td>to taste</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h4>Brew</h4>
+<div class="brew-block">
+  <div class="brew-card"><div class="label">Temp</div><div class="value">95 °C / 203 °F</div></div>
+  <div class="brew-card"><div class="label">Steep</div><div class="value">5–7 min</div></div>
+  <div class="brew-card"><div class="label">Ratio</div><div class="value">2.5 g / 8 oz</div></div>
+  <div class="brew-card"><div class="label">Finish</div><div class="value">½ tsp honey</div></div>
+</div>
+
+<h4>Wellness</h4>
+<ul>
+<li>Rich in antioxidants</li>
+<li>Soothes digestion</li>
+<li>Calming, caffeine-free — perfect evening pour</li>
+</ul>
+
+<div class="shop-list">
+  <h4 style="margin-top:0">Shop This Fusion</h4>
+  <ul>
+    <li><a href="https://www.amazon.com/Anthonys-Organic-Rooibos-Loose-Gluten/dp/B07S2FCSX4">Anthony's Organic Rooibos</a></li>
+    <li><a href="https://www.amazon.com/Anthonys-Organic-Spearmint-Leaves-Verified/dp/B07NRJQD2N">Anthony's Dried Spearmint</a></li>
+    <li><a href="https://www.amazon.com/Anthonys-Organic-Petals-Culinary-Gluten/dp/B07Q8N6QRR">Anthony's Rose Petals</a></li>
+    <li><a href="https://www.amazon.com/Savannah-Bee-Company-Orange-Blossom/dp/B001DYLKT4">Savannah Bee Orange-Blossom Honey</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- SILK ROUTE -->
+<div class="fusion-section" id="silk-route">
+<div class="ribbon">✦ C&amp;C Signature Fusion</div>
+<h3><span class="fusion-number">II.</span>Silk Route</h3>
+<p class="fusion-story">Himalayas × Kashmir × Persia — A caravan in a cup. The muscatel crispness of Darjeeling first flush, threaded with saffron from the Kashmir valley and roses from the gardens of Isfahan.</p>
+<div class="pill-row">
+  <span class="pill pill-caf">Caffeinated</span>
+  <span class="pill pill-profile">Floral · Spiced · Light-medium body</span>
+</div>
+
+<h4>Recipe — 1 tin · ~75 g · ~30 cups</h4>
+<table>
+<thead><tr><th>Ingredient</th><th>Grams</th><th>Parts</th><th>Teaspoons</th></tr></thead>
+<tbody>
+<tr><td>Darjeeling First Flush</td><td>50 g</td><td>10</td><td>~25 tsp</td></tr>
+<tr><td>Green cardamom pods (crushed)</td><td>10 g</td><td>2</td><td>~4 tsp</td></tr>
+<tr><td>Dried rose petals</td><td>8 g</td><td>1½</td><td>~4 tsp</td></tr>
+<tr><td>Cinnamon chips</td><td>4 g</td><td>½</td><td>~2 tsp</td></tr>
+<tr><td><strong>Saffron threads</strong> (in-cup, not in blend)</td><td>—</td><td>—</td><td>4–6 threads / 8 oz</td></tr>
+</tbody>
+</table>
+<div class="callout">⚠️ <strong>Don't blend saffron into the tin</strong> — it loses potency. Add threads directly to hot water at brewing.</div>
+
+<h4>Brew</h4>
+<div class="brew-block">
+  <div class="brew-card"><div class="label">Temp</div><div class="value">85 °C / 185 °F</div></div>
+  <div class="brew-card"><div class="label">Steep</div><div class="value">4 min</div></div>
+  <div class="brew-card"><div class="label">Ratio</div><div class="value">2.5 g + 5 threads / 8 oz</div></div>
+  <div class="brew-card"><div class="label">Finish</div><div class="value">Float a rose petal</div></div>
+</div>
+
+<h4>Wellness</h4>
+<ul>
+<li>Improves circulation</li>
+<li>Anti-inflammatory (saffron)</li>
+<li>Mood-lifting floral aromatics</li>
+</ul>
+
+<div class="shop-list">
+  <h4 style="margin-top:0">Shop This Fusion</h4>
+  <ul>
+    <li><a href="https://www.amazon.com/VAHDAM-Darjeeling-Premium-LOOSE-Muscatel/dp/B01N29XAB9">Vahdam Darjeeling First Flush</a></li>
+    <li><a href="https://www.amazon.com/Spicy-World-Green-Cardamom-Pods/dp/B002TLSXGC">Spicy World Green Cardamom</a></li>
+    <li><a href="https://www.amazon.com/Golchin-Saffron-Persian-Authentic-Pongal/dp/B07YTPJQG5">Golchin Persian Saffron</a></li>
+    <li><a href="https://www.amazon.com/Anthonys-Organic-Petals-Culinary-Gluten/dp/B07Q8N6QRR">Rose Petals</a></li>
+    <li><a href="https://www.amazon.com/365-Everyday-Value-Cinnamon-Sticks/dp/B07VXDSV47">Ceylon Cinnamon</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- OBSIDIAN MATE -->
+<div class="fusion-section" id="obsidian-mate">
+<div class="ribbon">✦ C&amp;C Signature Fusion</div>
+<h3><span class="fusion-number">III.</span>Obsidian Mate</h3>
+<p class="fusion-story">Pampas × Kyoto — The gaucho's mate meets the Kyoto hearth. Yerba mate's vegetal bite, softened by hojicha's toasted embers and a scattering of cacao.</p>
+<div class="pill-row">
+  <span class="pill pill-caf">Caffeinated</span>
+  <span class="pill pill-profile">Earthy · Roasted · Full body · Bitter-forward</span>
+</div>
+
+<h4>Recipe — 1 tin · ~80 g · ~32 cups</h4>
+<table>
+<thead><tr><th>Ingredient</th><th>Grams</th><th>Parts</th><th>Teaspoons</th></tr></thead>
+<tbody>
+<tr><td>Argentine yerba mate</td><td>40 g</td><td>5</td><td>~12 tsp</td></tr>
+<tr><td>Hojicha (roasted green)</td><td>24 g</td><td>3</td><td>~10 tsp</td></tr>
+<tr><td>Cacao nibs (raw)</td><td>12 g</td><td>1½</td><td>~5 tsp</td></tr>
+<tr><td>Cinnamon chips</td><td>4 g</td><td>½</td><td>~2 tsp</td></tr>
+</tbody>
+</table>
+
+<h4>Brew</h4>
+<div class="brew-block">
+  <div class="brew-card"><div class="label">Temp</div><div class="value">80 °C / 176 °F</div></div>
+  <div class="brew-card"><div class="label">Steep</div><div class="value">3–4 min</div></div>
+  <div class="brew-card"><div class="label">Ratio</div><div class="value">2.5 g / 8 oz</div></div>
+  <div class="brew-card"><div class="label">Gongfu</div><div class="value">5 g / 150 ml, 30 s × 4</div></div>
+</div>
+<div class="callout">Any hotter than 80 °C scorches mate and turns it bitter. Stick to the temp.</div>
+
+<h4>Wellness</h4>
+<ul>
+<li>Sustained, jitter-free energy</li>
+<li>Rich in polyphenols</li>
+<li>Grounding and focus-enhancing</li>
+</ul>
+
+<div class="shop-list">
+  <h4 style="margin-top:0">Shop This Fusion</h4>
+  <ul>
+    <li><a href="https://www.amazon.com/Cruz-Malta-Yerba-Mate-Tea/dp/B00E3UI0SC">Cruz de Malta Yerba Mate</a></li>
+    <li><a href="https://www.amazon.com/Ocha-Roasted-Japanese-Houjicha-Houjitya/dp/B07V5DGDPZ">Ocha &amp; Co. Hojicha</a></li>
+    <li><a href="https://www.amazon.com/Navitas-Organics-Cacao-Nibs-Ounce/dp/B004UL8LUO">Navitas Cacao Nibs</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- MONSOON BLOOM -->
+<div class="fusion-section" id="monsoon-bloom">
+<div class="ribbon">✦ C&amp;C Signature Fusion</div>
+<h3><span class="fusion-number">IV.</span>Monsoon Bloom</h3>
+<p class="fusion-story">Subcontinent × Taiwan — When the monsoon winds reach the mountain. Cardamom and ginger from Kerala, wrapped around the creamy floral silk of Alishan high-mountain oolong.</p>
+<div class="pill-row">
+  <span class="pill pill-caf">Caffeinated</span>
+  <span class="pill pill-profile">Floral · Spicy · Medium-heavy body</span>
+</div>
+
+<h4>Recipe — 1 tin · ~75 g · ~30 cups</h4>
+<table>
+<thead><tr><th>Ingredient</th><th>Grams</th><th>Parts</th><th>Teaspoons</th></tr></thead>
+<tbody>
+<tr><td>Alishan oolong</td><td>50 g</td><td>10</td><td>~20 tsp</td></tr>
+<tr><td>Green cardamom pods (crushed)</td><td>10 g</td><td>2</td><td>~4 tsp</td></tr>
+<tr><td>Dried jasmine flowers</td><td>8 g</td><td>1½</td><td>~5 tsp</td></tr>
+<tr><td>Cinnamon chips</td><td>4 g</td><td>½</td><td>~2 tsp</td></tr>
+<tr><td>Dried ginger root (slivers)</td><td>3 g</td><td>½</td><td>~1 tsp</td></tr>
+</tbody>
+</table>
+
+<h4>Brew</h4>
+<div class="brew-block">
+  <div class="brew-card"><div class="label">Temp</div><div class="value">95 °C / 203 °F</div></div>
+  <div class="brew-card"><div class="label">Steep</div><div class="value">4–5 min (W) / 30 s × 4 (gongfu)</div></div>
+  <div class="brew-card"><div class="label">Ratio</div><div class="value">2.5 g / 8 oz</div></div>
+  <div class="brew-card"><div class="label">Finish</div><div class="value">Float a jasmine bud</div></div>
+</div>
+
+<h4>Wellness</h4>
+<ul>
+<li>Warming and digestive</li>
+<li>Uplifting floral compounds</li>
+<li>Gentle sustained focus</li>
+</ul>
+
+<div class="shop-list">
+  <h4 style="margin-top:0">Shop This Fusion</h4>
+  <ul>
+    <li><a href="https://www.amazon.com/FullChea-Natural-Alishan-Mountain-Taiwanese/dp/B0855YZGTW">FullChea Alishan Oolong</a></li>
+    <li><a href="https://www.amazon.com/Spicy-World-Green-Cardamom-Pods/dp/B002TLSXGC">Green Cardamom</a></li>
+    <li><a href="https://www.amazon.com/Tealyra-Jasmine-Flower-Buds-Scenting/dp/B00VDC5P7U">Tealyra Jasmine Buds</a></li>
+    <li><a href="https://www.amazon.com/Frontier-Co-op-Ginger-Cut-Sifted/dp/B000WR4OFO">Frontier Dried Ginger Root</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- SAHARA SUNSET -->
+<div class="fusion-section" id="sahara-sunset">
+<div class="ribbon">✦ C&amp;C Signature Fusion</div>
+<h3><span class="fusion-number">V.</span>Sahara Sunset</h3>
+<p class="fusion-story">Nile × Maghreb — The crimson of Egyptian hibiscus paints the sky at Moroccan dusk. Tart, floral, and endlessly pourable. Summer in a glass.</p>
+<div class="pill-row">
+  <span class="pill pill-nocaf">Caffeine-free</span>
+  <span class="pill pill-profile">Floral · Tart · Sweet · Light body</span>
+</div>
+
+<h4>Recipe — 1 tin · ~75 g · ~30 cups</h4>
+<table>
+<thead><tr><th>Ingredient</th><th>Grams</th><th>Parts</th><th>Teaspoons</th></tr></thead>
+<tbody>
+<tr><td>Dried hibiscus flowers</td><td>35 g</td><td>5</td><td>~14 tsp</td></tr>
+<tr><td>Dried rose petals</td><td>18 g</td><td>2½</td><td>~10 tsp</td></tr>
+<tr><td>Dried spearmint</td><td>15 g</td><td>2</td><td>~10 tsp</td></tr>
+<tr><td>Dried orange peel (cut)</td><td>5 g</td><td>1</td><td>~2 tsp</td></tr>
+<tr><td>Orange-blossom water (finish)</td><td>—</td><td>—</td><td>2–3 drops / cup</td></tr>
+</tbody>
+</table>
+
+<h4>Brew</h4>
+<div class="brew-block">
+  <div class="brew-card"><div class="label">Temp</div><div class="value">100 °C / 212 °F</div></div>
+  <div class="brew-card"><div class="label">Steep</div><div class="value">6–8 min</div></div>
+  <div class="brew-card"><div class="label">Serve</div><div class="value">Cold, over ice</div></div>
+  <div class="brew-card"><div class="label">Finish</div><div class="value">2–3 drops orange-blossom water</div></div>
+</div>
+
+<h4>Wellness</h4>
+<ul>
+<li>High in Vitamin C</li>
+<li>Supports heart health</li>
+<li>Cooling and hydrating</li>
+</ul>
+
+<div class="shop-list">
+  <h4 style="margin-top:0">Shop This Fusion</h4>
+  <ul>
+    <li><a href="https://www.amazon.com/Frontier-Co-op-Hibiscus-Flowers-Cut/dp/B000WR4LKE">Frontier Co-op Hibiscus</a></li>
+    <li><a href="https://www.amazon.com/Anthonys-Organic-Petals-Culinary-Gluten/dp/B07Q8N6QRR">Anthony's Rose Petals</a></li>
+    <li><a href="https://www.amazon.com/Anthonys-Organic-Spearmint-Leaves-Verified/dp/B07NRJQD2N">Dried Spearmint</a></li>
+    <li><a href="https://www.amazon.com/Frontier-Co-op-Organic-Orange-Peel/dp/B00028AJ5K">Dried Orange Peel</a></li>
+    <li><a href="https://www.amazon.com/Cortas-Orange-Blossom-Water-10-Ounce/dp/B000SE26ZG">Cortas Orange-Blossom Water</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- ANDES AWAKENING -->
+<div class="fusion-section" id="andes-awakening">
+<div class="ribbon">✦ C&amp;C Signature Fusion</div>
+<h3><span class="fusion-number">VI.</span>Andes Awakening</h3>
+<p class="fusion-story">Gaucho × Aztec — A meeting of two continents at altitude. The vegetal strength of southern-Brazilian chimarrão, warmed by Mexican cacao and cinnamon.</p>
+<div class="pill-row">
+  <span class="pill pill-caf">Caffeinated</span>
+  <span class="pill pill-profile">Earthy · Bitter · Warming · Full body</span>
+</div>
+
+<h4>Recipe — 1 tin · ~80 g · ~32 cups</h4>
+<table>
+<thead><tr><th>Ingredient</th><th>Grams</th><th>Parts</th><th>Teaspoons</th></tr></thead>
+<tbody>
+<tr><td>Brazilian chimarrão</td><td>50 g</td><td>8</td><td>~15 tsp</td></tr>
+<tr><td>Cacao nibs (raw)</td><td>14 g</td><td>2</td><td>~6 tsp</td></tr>
+<tr><td>Ceylon cinnamon chips</td><td>8 g</td><td>1½</td><td>~4 tsp</td></tr>
+<tr><td>Dried spearmint</td><td>6 g</td><td>1</td><td>~4 tsp</td></tr>
+<tr><td>Cayenne (optional, finish)</td><td>—</td><td>—</td><td>pinch / cup</td></tr>
+</tbody>
+</table>
+
+<h4>Brew</h4>
+<div class="brew-block">
+  <div class="brew-card"><div class="label">Temp</div><div class="value">75 °C / 167 °F</div></div>
+  <div class="brew-card"><div class="label">Method</div><div class="value">Gourd + bomba, or infuser</div></div>
+  <div class="brew-card"><div class="label">Ratio</div><div class="value">4 g / 8 oz</div></div>
+  <div class="brew-card"><div class="label">Refill</div><div class="value">2–3 infusions</div></div>
+</div>
+
+<h4>Wellness</h4>
+<ul>
+<li>Energizing and focus-enhancing</li>
+<li>Mood-boosting theobromine</li>
+<li>Rich in antioxidants</li>
+</ul>
+
+<div class="shop-list">
+  <h4 style="margin-top:0">Shop This Fusion</h4>
+  <ul>
+    <li><a href="https://www.amazon.com/Chimarr%C3%A3o-Port%C3%A3o-Brazilian-Traditional-35-27oz/dp/B09RQVTK8H">Portão Chimarrão</a></li>
+    <li><a href="https://www.amazon.com/Navitas-Organics-Cacao-Nibs-Ounce/dp/B004UL8LUO">Navitas Cacao Nibs</a></li>
+    <li><a href="https://www.amazon.com/365-Everyday-Value-Cinnamon-Sticks/dp/B07VXDSV47">Ceylon Cinnamon</a></li>
+    <li><a href="https://www.amazon.com/Balibetov-Imperial-Argentinian-Polished-Bombilla/dp/B085HRVGXK">Mate Gourd + Bomba Kit</a></li>
+  </ul>
+</div>
+</div>
+
+<hr>
+
+<!-- SERVEWARE -->
+<h2 id="serveware">☕ Signature Branded Serveware</h2>
+<p>One consistent vessel your guests will remember and photograph — the C&amp;C look for every event.</p>
+
+<h3>The Primary Signature — Double-Wall Glass Cups</h3>
+<p>Why: Lets guests see the color of each fusion. Insulated so it stays hot. Modern, minimalist, photographable. Works with every fusion.</p>
+<table>
+<thead><tr><th>Option</th><th>Best For</th><th>Amazon Link</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Bodum Pavina 8oz (set of 6) — iconic</td><td>Flagship signature</td><td><a href="https://www.amazon.com/Bodum-Pavina-Double-Wall-Glass/dp/B004OPLDTI">Bodum Pavina</a></td><td>~$38</td></tr>
+<tr><td>JoyJolt Savor 10oz (set of 6) — budget</td><td>Scaling up</td><td><a href="https://www.amazon.com/JoyJolt-Double-Walled-Glasses-Coffee-Insulated/dp/B07MB4WZ9Z">JoyJolt Savor</a></td><td>~$30</td></tr>
+<tr><td>JavaFly 12oz tall (set of 6)</td><td>Mate &amp; chimarrão</td><td><a href="https://www.amazon.com/JavaFly-Double-Wall-Thermo-Insulated/dp/B07PVXDNHL">JavaFly Tall</a></td><td>~$33</td></tr>
+</tbody>
+</table>
+
+<h3>Culture-Specific Accents (Rotate by Fusion)</h3>
+<table>
+<thead><tr><th>Fusion</th><th>Vessel</th><th>Amazon Link</th></tr></thead>
+<tbody>
+<tr><td>Serengeti Gold, Silk Route</td><td>Moroccan tea glasses (gilded)</td><td><a href="https://www.amazon.com/Moroccan-Tea-Glasses-Set-Handmade/dp/B07Q3YC1XT">Moroccan Glasses</a></td></tr>
+<tr><td>Obsidian Mate, Monsoon Bloom</td><td>Porcelain gongfu cups (50 ml, set of 6)</td><td><a href="https://www.amazon.com/Chinese-Kungfu-Porcelain-Teacups-Handmade/dp/B07Q8TG1RK">Gongfu Cups</a></td></tr>
+<tr><td>Sahara Sunset</td><td>Stemless tumblers for iced serve</td><td><a href="https://www.amazon.com/Libbey-Craft-Brews-Stemless-Glasses/dp/B00OD9O6UC">Libbey Tumblers</a></td></tr>
+<tr><td>Andes Awakening</td><td>Mate gourd (calabash) + bomba</td><td><a href="https://www.amazon.com/Balibetov-Imperial-Argentinian-Polished-Bombilla/dp/B085HRVGXK">Balibetov Gourd Kit</a></td></tr>
+<tr><td>Masala Chai &amp; chai-style events</td><td>Clay kulhads (set of 6)</td><td><a href="https://www.amazon.com/Adhaata-Ceramic-Kulhar-Traditional-Reddish/dp/B09VPLZZNR">Ceramic Kulhads</a></td></tr>
+</tbody>
+</table>
+
+<h3>Custom-Branded Cups (Putting the C&amp;C logo on your cups)</h3>
+<table>
+<thead><tr><th>Vendor</th><th>Product</th><th>Link</th><th>MOQ &amp; Price</th></tr></thead>
+<tbody>
+<tr><td>Etsy (LaserLight Co.)</td><td>Laser-etched double-wall glass, full wrap</td><td><a href="https://www.etsy.com/search?q=custom+laser+engraved+double+wall+glass">Etsy Search</a></td><td>From $4/cup · MOQ 10</td></tr>
+<tr><td>4imprint</td><td>Ceramic tumblers, screen print</td><td><a href="https://www.4imprint.com/search/ceramic-mug">4imprint</a></td><td>From $3/cup · MOQ 24</td></tr>
+<tr><td>Discount Mugs</td><td>Full-color wrap ceramic</td><td><a href="https://www.discountmugs.com/category/ceramic-mugs">Discount Mugs</a></td><td>From $2.50/cup · MOQ 36</td></tr>
+<tr><td>StickerMule</td><td>Custom die-cut logo stickers</td><td><a href="https://www.stickermule.com/custom-stickers">StickerMule</a></td><td>From $0.30</td></tr>
+</tbody>
+</table>
+
+<div class="callout">
+  <strong>Recommended first order:</strong> 50 × double-wall 8 oz glasses laser-etched with the C&amp;C icon (Etsy, ~$200 total). Reusable, photographable, become a collectible guests want to keep.
+</div>
+
+<h3>Supporting Serveware</h3>
+<table>
+<thead><tr><th>Item</th><th>Amazon Link</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Silver Moroccan teapot (1 L)</td><td><a href="https://www.amazon.com/Authentic-Moroccan-Teapot-Traditional-Stainless/dp/B09H4JXMF8">Moroccan Teapot</a></td><td>~$40</td></tr>
+<tr><td>Cast-iron tetsubin</td><td><a href="https://www.amazon.com/PRIMULA-Cast-Iron-Teapot-Infuser/dp/B07MV7QZF5">Tetsubin</a></td><td>~$35</td></tr>
+<tr><td>Glass teapot with infuser</td><td><a href="https://www.amazon.com/HIWARE-Infuser-Stovetop-Borosilicate-Removable-Teapot/dp/B07XXWT9FG">HIWARE Glass Teapot</a></td><td>~$25</td></tr>
+<tr><td>Bamboo serving tray</td><td><a href="https://www.amazon.com/Bamboo-Serving-Handles-Kitchen-Counter/dp/B08M9TB5CT">Bamboo Tray</a></td><td>~$28</td></tr>
+<tr><td>Linen napkins (12)</td><td><a href="https://www.amazon.com/Dinner-Napkins-Cotton-Linen-Tea-Towels/dp/B07K4V1QKK">Linen Napkins</a></td><td>~$20</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<!-- SCALING -->
+<h2 id="scaling">📊 Event Scaling &amp; Batch Math</h2>
+<p>Base ratio: <strong>2.5 g of blend per 8 oz cup</strong>.</p>
+<table>
+<thead><tr><th>Event Size</th><th>Cups Served</th><th>Blend / Fusion</th><th>6-Fusion Total</th></tr></thead>
+<tbody>
+<tr><td>Solo tasting</td><td>1</td><td>2.5 g</td><td>15 g</td></tr>
+<tr><td>Small gathering</td><td>4</td><td>10 g</td><td>60 g</td></tr>
+<tr><td>Pop-up (12 guests)</td><td>12</td><td>30 g</td><td>180 g</td></tr>
+<tr><td>Featured event (25)</td><td>25</td><td>63 g</td><td>375 g</td></tr>
+<tr><td>Flagship evening (50)</td><td>50</td><td>125 g</td><td>750 g</td></tr>
+</tbody>
+</table>
+
+<div class="callout">
+  <strong>First production run:</strong> Blend 75 g of each fusion = six 75 g tins ≈ 180 cups of tea total. Raw material cost ≈ <strong>$180–220</strong>.
+</div>
+
+<hr>
+
+<!-- CHECKLIST -->
+<h2 id="checklist">✅ Shopping Checklist</h2>
+
+<h3>Phase 1 — Pantry Stock ($180–220)</h3>
+<ul>
+  <li>☐ Rooibos (1 lb) · Darjeeling First Flush (12 oz) · Alishan Oolong (4 oz)</li>
+  <li>☐ Hojicha (100 g) · Yerba Mate (1 lb) · Chimarrão (2 lb)</li>
+  <li>☐ Hibiscus (1 lb) · Rose petals (4 oz) · Spearmint (1 lb) · Jasmine (4 oz)</li>
+  <li>☐ Cardamom pods (7 oz) · Ceylon cinnamon · Saffron (1 g) · Cacao nibs (16 oz)</li>
+  <li>☐ Orange-blossom honey · Orange-blossom water · Dried orange peel · Dried ginger</li>
+</ul>
+
+<h3>Phase 2 — Equipment ($80–120)</h3>
+<ul>
+  <li>☐ Digital scale (0.1 g)</li>
+  <li>☐ Glass storage jars x 6</li>
+  <li>☐ Empty filter tea bags</li>
+  <li>☐ Blank kraft labels</li>
+</ul>
+
+<h3>Phase 3 — Signature Serveware ($250–300)</h3>
+<ul>
+  <li>☐ 12 × Bodum Pavina double-wall glasses</li>
+  <li>☐ Silver Moroccan teapot</li>
+  <li>☐ Cast-iron tetsubin</li>
+  <li>☐ Glass teapot with infuser</li>
+  <li>☐ Bamboo serving tray &amp; linen napkins</li>
+</ul>
+
+<h3>Phase 4 — Branded Order ($200+)</h3>
+<ul>
+  <li>☐ 50 × Laser-etched C&amp;C logo double-wall glasses (Etsy)</li>
+</ul>
+
+<div class="callout"><strong>Total launch budget: $700–850</strong></div>
+
+<hr>
+
+<!-- TIPS -->
+<h2 id="tips">💡 Storage, Shelf Life &amp; Pro Tips</h2>
+
+<h3>Storage</h3>
+<ul>
+  <li>Airtight glass jars, kept dark and cool (pantry shelf, not fridge).</li>
+  <li>Never store with strong-smelling foods — tea absorbs odors aggressively.</li>
+  <li>Label each tin: fusion name, blend date, batch number.</li>
+</ul>
+
+<h3>Shelf Life</h3>
+<table>
+<thead><tr><th>Blend Type</th><th>Fresh Window</th></tr></thead>
+<tbody>
+<tr><td>Rooibos, hibiscus, herbal fusions</td><td>12–18 months</td></tr>
+<tr><td>Black tea fusions (Silk Route)</td><td>12 months</td></tr>
+<tr><td>Oolong &amp; green fusions (Monsoon Bloom, Obsidian Mate)</td><td>6–9 months</td></tr>
+<tr><td>Saffron (separate)</td><td>2 yrs sealed / 6 mo opened</td></tr>
+</tbody>
+</table>
+
+<h3>Pro Tips</h3>
+<ol>
+  <li>Blend small batches weekly — freshness shows in the cup.</li>
+  <li>Always weigh, never eyeball — the flavor chart holds only if ratios are consistent.</li>
+  <li>Keep a 10 g "reference" from your best batch and taste-test against it.</li>
+  <li>Pre-portion event tins into 2.5 g single-serve sachets for pop-ups.</li>
+  <li>Saffron and cacao nibs go in-cup, not in-tin — they lose aroma in blends over time.</li>
+  <li>Photograph every new batch for @cupsandcultures.co — the ritual <em>is</em> the brand.</li>
+  <li>Keep a brewing log: water hardness, temperature, steep time, guest reactions.</li>
+</ol>
+
+<h3>Creative Expansions</h3>
+<ul>
+  <li><strong>Fusion Passport</strong> — postcard tasting card stamped per fusion. All 6 → unlock a limited blend.</li>
+  <li><strong>Quarterly Drop</strong> — numbered 50-unit seasonal tins.</li>
+  <li><strong>Pairing Playlist QR</strong> — each tin has a QR linking to the fusion's Spotify playlist.</li>
+  <li><strong>Fusion Flight Box</strong> — 6 × 10 g sachet gift set, ~$38 retail.</li>
+  <li><strong>Guest Collaborations</strong> — co-design a one-off fusion with a musician/writer for featured evenings.</li>
+</ul>
+
+<div class="footer-brand">
+  Cups &amp; Cultures — Tea. Culture. Connection.<br>
+  <span style="font-size:10pt; font-style:normal;">info@cupsandcultures.co · <a href="https://instagram.com/cupsandcultures.co" style="color:var(--ochre); border:none">@cupsandcultures.co</a> · <a href="https://cupsandcultures.co" style="color:var(--ochre); border:none">cupsandcultures.co</a></span>
+</div>
+
+</div>
+
+<script>
+  function exportToGoogleDocs() {
+    // Open Google Docs blank document
+    window.open('https://docs.google.com/document/create', '_blank');
+    // Alert the user with instructions
+    setTimeout(() => {
+      alert(
+        "Google Docs is now open.\n\n" +
+        "Option A — Import the Markdown file:\n" +
+        "  1. In Docs, click File → Open → Upload\n" +
+        "  2. Select the Cups_and_Cultures_Fusion_Recipes.md file (download it from the toolbar)\n\n" +
+        "Option B — Paste formatted:\n" +
+        "  1. Use Ctrl/Cmd+A to select all on this page\n" +
+        "  2. Ctrl/Cmd+C to copy\n" +
+        "  3. In your new Doc, Ctrl/Cmd+V to paste (keeps tables + links)"
+      );
+    }, 500);
+  }
+</script>
+
+</body>
+</html>
