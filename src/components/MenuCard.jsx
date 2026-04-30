@@ -1,11 +1,14 @@
 import { useState } from 'react'
-import { Music, BookOpen, Flame, Clock, Thermometer, ChevronDown, Sparkles, Leaf } from 'lucide-react'
+import { Music, BookOpen, Flame, Clock, Thermometer, ChevronDown, Sparkles, Leaf, ArrowUpRight } from 'lucide-react'
 import FlavorProfile from './FlavorProfile'
+import TeaDetailModal from './TeaDetailModal'
 
 export default function MenuCard({ tea }) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   return (
+    <>
     <div
       className={`bg-cream-50 border rounded-sm overflow-hidden group transition-all duration-700 ease-out ${
         isExpanded
@@ -154,9 +157,25 @@ export default function MenuCard({ tea }) {
                 </p>
               </div>
             </div>
+
+            {/* View Full Profile CTA */}
+            <button
+              onClick={() => setShowModal(true)}
+              className="mt-2 w-full flex items-center justify-center gap-2 py-3 bg-espresso-900 text-cream-50 rounded-sm hover:bg-espresso-800 transition-all duration-500 group/profile"
+            >
+              <span className="text-xs uppercase tracking-[0.2em] font-medium">
+                View Full Profile
+              </span>
+              <ArrowUpRight
+                size={14}
+                className="transition-transform duration-500 group-hover/profile:translate-x-0.5 group-hover/profile:-translate-y-0.5"
+              />
+            </button>
           </div>
         </div>
       </div>
     </div>
+    {showModal && <TeaDetailModal tea={tea} onClose={() => setShowModal(false)} />}
+    </>
   )
 }

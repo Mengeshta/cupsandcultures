@@ -85,6 +85,302 @@
       ]
     },
     {
+      "id": "east-africa",
+      "name": "East Africa",
+      "subtitle": "Highland Origins",
+      "description": "From Ethiopia's ancient forests to Kenya's sun-drenched highlands and Rwanda's terraced hills—East Africa is where tea began. Here, tea grows alongside coffee, creating unique traditions of morning and evening brews.",
+      "teas": [
+        {
+          "id": "ethiopian-black",
+          "name": "Ethiopian Black",
+          "origin": "Ethiopia",
+          "type": "Assamica Black Tea",
+          "caffeine": "caffeinated",
+          "flavorProfile": {
+            "earthiness": 40,
+            "spice": 20,
+            "floral": 30,
+            "sweetness": 25,
+            "bitterness": 30,
+            "body": 55
+          },
+          "culturalPairing": {
+            "ceremony": "Brewed strong with spices in the Ethiopian highlands, often served with injera during morning gatherings.",
+            "music": "Ethiopian jazz — the fusion of traditional melodies with modern rhythms",
+            "literature": "Maaza Mengiste — The Shadow King"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "4–5 min"
+        },
+        {
+          "id": "kenyan-purple",
+          "name": "Kenyan Purple Tea",
+          "origin": "Kenya",
+          "type": "Purple Leaf Tea",
+          "caffeine": "caffeinated",
+          "flavorProfile": {
+            "earthiness": 25,
+            "spice": 15,
+            "floral": 45,
+            "sweetness": 40,
+            "bitterness": 10,
+            "body": 35
+          },
+          "culturalPairing": {
+            "ceremony": "A rare purple-leaf variety rich in anthocyanins, brewed lighter to preserve its unique character.",
+            "music": "Benga rhythms — the upbeat sounds of Lake Victoria",
+            "literature": "Ngũgĩ wa Thiong'o — A Grain of Wheat"
+          },
+          "brewTemp": "80°C / 176°F",
+          "steepTime": "3–4 min"
+        },
+        {
+          "id": "rwandan-hibiscus",
+          "name": "Rwandan Hibiscus",
+          "origin": "Rwanda",
+          "type": "Herbal Infusion — Hibiscus, Lemongrass, Ginger",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 15,
+            "spice": 35,
+            "floral": 70,
+            "sweetness": 20,
+            "bitterness": 25,
+            "body": 30
+          },
+          "culturalPairing": {
+            "ceremony": "Known as 'Ishakwe' in Kinyarwanda, this vibrant red infusion is shared at community gatherings.",
+            "music": "Traditional drumming — the heartbeat of Rwandan celebrations",
+            "literature": "Scholastique Mukasonga — Our Lady of the Nile"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "6–8 min"
+        }
+      ]
+    },
+    {
+      "id": "west-africa",
+      "name": "West Africa",
+      "subtitle": "Community Cups",
+      "description": "From Senegal's bustling streets to Ghana's coastal communities and Nigeria's vibrant markets—West African tea traditions blend indigenous herbs with colonial influences, creating unique communal ceremonies.",
+      "teas": [
+        {
+          "id": "senegalese-attaaya",
+          "name": "Attaaya",
+          "origin": "Senegal",
+          "type": "Green Tea with Mint and Sugar",
+          "caffeine": "caffeinated",
+          "flavorProfile": {
+            "earthiness": 20,
+            "spice": 25,
+            "floral": 15,
+            "sweetness": 75,
+            "bitterness": 20,
+            "body": 35
+          },
+          "culturalPairing": {
+            "ceremony": "Three rounds of increasingly sweet tea—'the first for your mother, the second for your father, the third for yourself.'",
+            "music": "Mbalax rhythms — the dance music of Dakar",
+            "literature": "Mariama Bâ — So Long a Letter"
+          },
+          "brewTemp": "85°C / 185°F",
+          "steepTime": "5–7 min"
+        },
+        {
+          "id": "ghanaian-sobolo",
+          "name": "Sobolo",
+          "origin": "Ghana",
+          "type": "Hibiscus and Ginger Tea",
+          "caffeine": "caffeinated",
+          "flavorProfile": {
+            "earthiness": 10,
+            "spice": 60,
+            "floral": 50,
+            "sweetness": 35,
+            "bitterness": 20,
+            "body": 40
+          },
+          "culturalPairing": {
+            "ceremony": "Sold on streets across Ghana, this bright red drink is the taste of everyday life.",
+            "music": "Highlife — the golden sounds of Ghanaian cities",
+            "literature": "Ayi Kwei Armah — The Beautyful Ones Are Not Yet Born"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "8–10 min"
+        },
+        {
+          "id": "nigerian-zobo",
+          "name": "Zobo",
+          "origin": "Nigeria",
+          "type": "Roselle and Pineapple Peel Tea",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 15,
+            "spice": 40,
+            "floral": 60,
+            "sweetness": 45,
+            "bitterness": 15,
+            "body": 35
+          },
+          "culturalPairing": {
+            "ceremony": "Chilled and served at celebrations across Nigeria, often with a hint of vanilla or clove.",
+            "music": "Afrobeat — the revolutionary sounds of Fela Kuti",
+            "literature": "Chimamanda Ngozi Adichie — Half of a Yellow Sun"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "10–12 min"
+        }
+      ]
+    },
+    {
+      "id": "central-africa",
+      "name": "Central Africa",
+      "subtitle": "Forest Infusions",
+      "description": "From Cameroon's mountain forests to Congo's river communities—Central African tea traditions draw deeply from the rainforest, incorporating native herbs, flowers, and healing plants passed down through generations.",
+      "teas": [
+        {
+          "id": "cameroonian-lippia",
+          "name": "Lippia Tea",
+          "origin": "Cameroon",
+          "type": "Lippia multiflora Herbal Tea",
+          "caffeine": "caffeinated",
+          "flavorProfile": {
+            "earthiness": 35,
+            "spice": 30,
+            "floral": 40,
+            "sweetness": 20,
+            "bitterness": 25,
+            "body": 45
+          },
+          "culturalPairing": {
+            "ceremony": "A traditional medicinal herb used by forest communities, believed to bring clarity and strength.",
+            "music": "Makossa — the rhythmic sounds of Cameroonian nights",
+            "literature": "Mongo Beti — Mission to Kala"
+          },
+          "brewTemp": "90°C / 194°F",
+          "steepTime": "5–7 min"
+        },
+        {
+          "id": "congolese-moringa",
+          "name": "Moringa Tea",
+          "origin": "DRC",
+          "type": "Moringa Leaf Tea",
+          "caffeine": "caffeinated",
+          "flavorProfile": {
+            "earthiness": 50,
+            "spice": 20,
+            "floral": 15,
+            "sweetness": 25,
+            "bitterness": 30,
+            "body": 40
+          },
+          "culturalPairing": {
+            "ceremony": "Known as 'the tree of life,' moringa leaves are brewed for their nutritional and healing properties.",
+            "music": "Soukous — the dance music of Kinshasa",
+            "literature": "Sony Labou Tansi — The Antipeople"
+          },
+          "brewTemp": "85°C / 185°F",
+          "steepTime": "4–6 min"
+        },
+        {
+          "id": "gabonese-bissap",
+          "name": "Bissap Infusion",
+          "origin": "Gabon",
+          "type": "Red Sorrel and Lemongrass",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 20,
+            "spice": 25,
+            "floral": 65,
+            "sweetness": 30,
+            "bitterness": 15,
+            "body": 35
+          },
+          "culturalPairing": {
+            "ceremony": "Shared during community gatherings, this crimson infusion represents the vitality of the forest.",
+            "music": "Traditional harp music — the sounds of Gabonese forest ceremonies",
+            "literature": "Bessie Head — When Rain Clouds Gather"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "7–9 min"
+        }
+      ]
+    },
+    {
+      "id": "south-africa",
+      "name": "Southern Africa",
+      "subtitle": "Bush Teas & Rooibos",
+      "description": "From South Africa's Cederberg mountains to Zimbabwe's highveld—Southern Africa offers unique teas born from the bush. Rooibos, honeybush, and buchu tell stories of indigenous knowledge and healing traditions.",
+      "teas": [
+        {
+          "id": "south-african-rooibos",
+          "name": "Rooibos",
+          "origin": "South Africa",
+          "type": "Red Bush Tea",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 45,
+            "spice": 25,
+            "floral": 20,
+            "sweetness": 50,
+            "bitterness": 10,
+            "body": 40
+          },
+          "culturalPairing": {
+            "ceremony": "Harvested by Khoisan communities for centuries, rooibos means 'red bush' in Afrikaans.",
+            "music": "Maskandi — the Zulu folk guitar tradition",
+            "literature": "Zakes Mda — Ways of Dying"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "6–8 min"
+        },
+        {
+          "id": "zimbabwean-honeybush",
+          "name": "Honeybush",
+          "origin": "Zimbabwe",
+          "type": "Cyclopia Herbal Tea",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 30,
+            "spice": 20,
+            "floral": 35,
+            "sweetness": 65,
+            "bitterness": 5,
+            "body": 35
+          },
+          "culturalPairing": {
+            "ceremony": "Naturally sweet with notes of honey and apricot, this tea is fermented in the mountain sun.",
+            "music": "Mbira music — the traditional thumb piano of Zimbabwe",
+            "literature": "Yvonne Vera — Butterfly Burning"
+          },
+          "brewTemp": "95°C / 203°F",
+          "steepTime": "5–7 min"
+        },
+        {
+          "id": "botswanan-buchu",
+          "name": "Buchu Tea",
+          "origin": "Botswana",
+          "type": "Agathosma betulina Herbal Tea",
+          "caffeine": "non-caffeinated",
+          "flavorProfile": {
+            "earthiness": 40,
+            "spice": 45,
+            "floral": 25,
+            "sweetness": 15,
+            "bitterness": 35,
+            "body": 30
+          },
+          "culturalPairing": {
+            "ceremony": "Used by San communities for generations, buchu is known for its distinctive minty-blackcurrant flavor.",
+            "music": "Traditional Tswana vocal harmonies",
+            "literature": "Unity Dow — Juggling Truths"
+          },
+          "brewTemp": "90°C / 194°F",
+          "steepTime": "4–6 min"
+        }
+      ]
+    },
+    {
       "id": "east-asia",
       "name": "East Asia",
       "subtitle": "The Way of Tea",
@@ -317,7 +613,10 @@
           "id": "fusion-serengeti-gold",
           "name": "Serengeti Gold",
           "origin": "Southern Africa × Maghreb",
-          "culturesBlended": ["South Africa", "Morocco"],
+          "culturesBlended": [
+            "South Africa",
+            "Morocco"
+          ],
           "type": "Rooibos · Spearmint · Honey",
           "caffeine": "non-caffeinated",
           "signature": true,
@@ -347,7 +646,11 @@
           "id": "fusion-silk-route",
           "name": "Silk Route",
           "origin": "Himalayas × Kashmir × Persia",
-          "culturesBlended": ["India", "Kashmir", "Iran"],
+          "culturesBlended": [
+            "India",
+            "Kashmir",
+            "Iran"
+          ],
           "type": "Darjeeling · Saffron · Cardamom · Rose",
           "caffeine": "caffeinated",
           "signature": true,
@@ -377,7 +680,10 @@
           "id": "fusion-obsidian-mate",
           "name": "Obsidian Mate",
           "origin": "Pampas × Kyoto",
-          "culturesBlended": ["Argentina", "Japan"],
+          "culturesBlended": [
+            "Argentina",
+            "Japan"
+          ],
           "type": "Yerba Mate · Hojicha · Cacao Nibs",
           "caffeine": "caffeinated",
           "signature": true,
@@ -407,7 +713,10 @@
           "id": "fusion-monsoon-bloom",
           "name": "Monsoon Bloom",
           "origin": "Subcontinent × Taiwan",
-          "culturesBlended": ["India", "Taiwan"],
+          "culturesBlended": [
+            "India",
+            "Taiwan"
+          ],
           "type": "Masala Spices · Alishan Oolong · Jasmine",
           "caffeine": "caffeinated",
           "signature": true,
@@ -437,7 +746,10 @@
           "id": "fusion-sahara-sunset",
           "name": "Sahara Sunset",
           "origin": "Nile × Maghreb",
-          "culturesBlended": ["Egypt", "Morocco"],
+          "culturesBlended": [
+            "Egypt",
+            "Morocco"
+          ],
           "type": "Hibiscus · Rose · Mint · Orange Blossom",
           "caffeine": "non-caffeinated",
           "signature": true,
@@ -467,7 +779,10 @@
           "id": "fusion-andes-awakening",
           "name": "Andes Awakening",
           "origin": "Gaucho × Aztec",
-          "culturesBlended": ["Brazil", "Mexico"],
+          "culturesBlended": [
+            "Brazil",
+            "Mexico"
+          ],
           "type": "Chimarrão · Cacao · Cinnamon · Mint",
           "caffeine": "caffeinated",
           "signature": true,
